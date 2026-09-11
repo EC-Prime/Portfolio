@@ -33,8 +33,8 @@ let mouseTimer = null;
 
 // Adjust grid size for mobile screens
 function setupCanvas() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
 
   if (width < 768) {
     CELL_SIZE = 8;

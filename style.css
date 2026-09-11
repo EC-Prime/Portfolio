@@ -3,11 +3,28 @@
     padding:0;
     box-sizing: border-box;
 }
+:root{
+    --white:#f5f5f2;
+    --gold:#fcb000;
+    --gold-bright:#e8c876;
+    --sidebar-width: 220px;
+    --ticker-height: 60px;
+}
+
+body{
+    background: #000;
+    color: var(--white);
+}
+
+main{
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+}
 
 .hero{
     position: relative;
     width: 100%;
-    height: 100svh;
+    min-height: 100vh;
     background-color: black;
 }
 
@@ -35,48 +52,127 @@ canvas{
     visibility: hidden;
 }
 
-#bulletin {
+
+.carousel{
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    height: var(--ticker-height);
     background-color: #000;
-    border-bottom: 1px solid #fff;
-    color: #fff;
+    border-bottom: 1px solid var(--gold-bright);
+    color: var(--gold);
     display: flex;
     align-items: center;
     overflow: hidden;
     z-index: 500;
 }
 
-.ticker-track {
-    width: 100%;
-    overflow: hidden;
+.carousel-track{
+    display: flex;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll{
+    from { transform: translateX(0); }
+    to   { transform: translateX(50%); }
+}
+
+.group{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    white-space: nowrap;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.card{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
     white-space: nowrap;
 }
 
-.ticker-content {
-    display: inline-flex;
-    width: 100%;
-    animation: ticker-scroll 20s linear infinite;
+aside{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, #080808 0%, #111 100%);
+    border-right: 1px solid rgba(232, 200, 118, .45);
+    padding: 1.5rem 1rem;
+    z-index: 1000;
 }
 
-.ticker-content span {
-    display: inline-block;
-    flex-shrink: 0;
-    padding-right: 2rem;
+nav{
+    height: 100%;
 }
 
-@keyframes ticker-scroll {
-    from {
-        transform: translateX(0);
+nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    list-style: none;
+}
+
+nav li{
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    min-height: 48px;
+    padding: 0 .75rem;
+    border-left: 2px solid transparent;
+    color: var(--gold-bright);
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+nav li:hover,
+nav li:focus-within{
+    background-color: rgba(252, 176, 0, .1);
+    border-left-color: var(--gold);
+    color: var(--gold);
+}
+
+nav i{
+    flex: 0 0 1.25rem;
+    font-size: 1.35rem;
+    text-align: center;
+}
+
+nav a{
+    color: inherit;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: .9rem;
+    letter-spacing: .08em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@media (max-width: 700px){
+    :root{
+        --sidebar-width: 72px;
     }
-    to {
-        transform: translateX(-100%);
+
+    aside{
+        padding: 1rem .5rem;
+    }
+
+    nav li{
+        justify-content: center;
+        padding: 0;
+    }
+
+    nav a{
+        display: none;
+    }
+
+    nav i{
+        font-size: 1.5rem;
+    }
+
+    .card{
+        font-size: .9rem;
     }
 }
-
-
-
-
