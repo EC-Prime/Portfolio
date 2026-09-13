@@ -176,3 +176,10 @@ nav a{
         font-size: .9rem;
     }
 }
+
+.about-content{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: linear-gradient(180deg, #080808 0%, #111 100%);
+}
