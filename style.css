@@ -1,9 +1,9 @@
 /* ==========================================================================
    EMMANUEL CHUMA // JUNIOR FULL-STACK DEVELOPER PORTFOLIO
-   THEME: LUXURY OBSIDIAN & CHAMPIONSHIP GOLD STADIUM
+   THEME: CLEAN OBSIDIAN & CHAMPIONSHIP GOLD
    ========================================================================== */
 
-/* --- ROOT VARIABLES (Design Guide Colors to a T) --- */
+/* --- ROOT VARIABLES (Exact Design Guide Palette) --- */
 :root {
     --championship-gold: #fcb000;
     --bright-champagne-gold: #e8c876;
@@ -28,14 +28,14 @@
     --live-match-red: #ef4444;
     --var-confirmed-green: #4ade80;
 
-    /* Aliases for cleaner code */
+    /* Aliases for concise styling */
     --gold: var(--championship-gold);
     --gold-bright: var(--bright-champagne-gold);
     --white: var(--off-white-chalk);
 
-    /* Layout dimensions */
+    /* Dimensions */
     --sidebar-width: 180px;
-    --ticker-height: 38px; /* Compact slider */
+    --ticker-height: 38px; /* Compact top strip */
 
     /* Typography */
     --font-mono: 'DM Mono', monospace;
@@ -43,7 +43,7 @@
     --font-sans: 'Inter', sans-serif;
 }
 
-/* --- RESET & GLOBAL STYLES --- */
+/* --- RESET & GLOBALS --- */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -88,7 +88,7 @@ body {
 }
 
 /* ==========================================================================
-   SIDEBAR (WITH CIRCULAR PROFILE TOP & SOCIALS BOTTOM)
+   SIDEBAR NAVIGATION
    ========================================================================== */
 aside {
     position: fixed;
@@ -106,7 +106,7 @@ aside {
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.75);
 }
 
-/* --- Top Section: Circular Profile Image --- */
+/* Top Section: Circular Profile Avatar */
 .sidebar-profile {
     display: flex;
     flex-direction: column;
@@ -127,7 +127,6 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
 }
 
 .profile-avatar {
@@ -153,7 +152,7 @@ aside {
 
 @keyframes livePulse {
     0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.6; }
+    50% { transform: scale(1.25); opacity: 0.6; }
 }
 
 .profile-info {
@@ -177,7 +176,7 @@ aside {
     color: var(--bright-champagne-gold);
 }
 
-/* --- Untouched Bar Navigation --- */
+/* Nav Links */
 nav {
     margin: 1rem 0;
     flex: 1;
@@ -224,7 +223,7 @@ nav a {
     text-transform: uppercase;
 }
 
-/* --- Bottom Section: Socials (LinkedIn, Email, GitHub) --- */
+/* Bottom Section: Social Icons */
 .sidebar-socials {
     display: flex;
     align-items: center;
@@ -257,7 +256,7 @@ nav a {
 }
 
 /* ==========================================================================
-   MAIN CONTENT & COMPACT TICKER (ACCURATE SPACE USAGE)
+   MAIN CONTENT & COMPACT TOP STRIP
    ========================================================================== */
 main {
     min-height: 100vh;
@@ -266,7 +265,7 @@ main {
     background-color: var(--stadium-black);
 }
 
-/* Compact Marquee Slider */
+/* Compact Top Marquee Strip */
 .carousel {
     position: fixed;
     top: 0;
@@ -286,7 +285,7 @@ main {
 .carousel-track {
     display: flex;
     width: max-content;
-    animation: scroll 20s linear infinite;
+    animation: scroll 22s linear infinite;
 }
 
 .carousel-track:hover {
@@ -327,7 +326,7 @@ main {
 
 .ticker-dot {
     color: var(--bright-champagne-gold);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
 }
 
 /* ==========================================================================
@@ -367,10 +366,10 @@ canvas {
     height: 100%;
     object-fit: contain;
     display: block;
-    visibility: hidden; /* Picked up by ASCII script */
+    visibility: hidden;
 }
 
-.kickoff-btn {
+.explore-btn {
     position: absolute;
     bottom: 2.5rem;
     left: 50%;
@@ -394,14 +393,14 @@ canvas {
     box-shadow: 0 4px 15px rgba(252, 176, 0, 0.25);
 }
 
-.kickoff-btn:hover {
+.explore-btn:hover {
     background: var(--championship-gold);
     color: var(--stadium-black);
     transform: translateX(-50%) translateY(-3px);
     box-shadow: 0 6px 20px rgba(252, 176, 0, 0.45);
 }
 
-.kickoff-btn i {
+.explore-btn i {
     font-size: 1.1rem;
     animation: arrowBob 1.5s infinite ease-in-out;
 }
@@ -412,7 +411,7 @@ canvas {
 }
 
 /* ==========================================================================
-   ABOUT ME SECTION // CLEAN TACTICAL PITCH LINE BORDER
+   ABOUT SECTION // CLEAN FRAMED DOSSIER
    ========================================================================== */
 .about-section {
     width: 100%;
@@ -422,7 +421,7 @@ canvas {
     position: relative;
 }
 
-/* Outer Pitch Border Container */
+/* The Pitch Border Container */
 .pitch-container {
     position: relative;
     border: 1.5px solid var(--gold-chalk-line);
@@ -451,11 +450,11 @@ canvas {
         0 0 18px rgba(252, 176, 0, 0.15);
 }
 
-/* Corner Arcs & Animated Corner Flags */
+/* Corner Arcs */
 .pitch-corner {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     pointer-events: none;
     z-index: 2;
 }
@@ -467,15 +466,15 @@ canvas {
 
 .corner-arc {
     position: absolute;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border: 1.5px solid var(--bright-champagne-gold);
 }
 
 .top-left .corner-arc {
     top: -1.5px;
     left: -1.5px;
-    border-radius: 0 0 22px 0;
+    border-radius: 0 0 20px 0;
     border-top: none;
     border-left: none;
 }
@@ -483,7 +482,7 @@ canvas {
 .top-right .corner-arc {
     top: -1.5px;
     right: -1.5px;
-    border-radius: 0 0 0 22px;
+    border-radius: 0 0 0 20px;
     border-top: none;
     border-right: none;
 }
@@ -491,7 +490,7 @@ canvas {
 .bottom-left .corner-arc {
     bottom: -1.5px;
     left: -1.5px;
-    border-radius: 0 22px 0 0;
+    border-radius: 0 20px 0 0;
     border-bottom: none;
     border-left: none;
 }
@@ -499,32 +498,12 @@ canvas {
 .bottom-right .corner-arc {
     bottom: -1.5px;
     right: -1.5px;
-    border-radius: 22px 0 0 0;
+    border-radius: 20px 0 0 0;
     border-bottom: none;
     border-right: none;
 }
 
-/* Corner Flag Flutter */
-.corner-flag {
-    position: absolute;
-    width: 9px;
-    height: 7px;
-    background: var(--championship-gold);
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-    animation: flagFlutter 2s ease-in-out infinite alternate;
-}
-
-.top-left .corner-flag { top: 4px; left: 4px; }
-.top-right .corner-flag { top: 4px; right: 4px; transform: scaleX(-1); }
-.bottom-left .corner-flag { bottom: 4px; left: 4px; }
-.bottom-right .corner-flag { bottom: 4px; right: 4px; transform: scaleX(-1); }
-
-@keyframes flagFlutter {
-    0% { transform: skewY(0deg) scaleX(1); }
-    100% { transform: skewY(-10deg) scaleX(0.85); }
-}
-
-/* Halfway Line & Center Circle */
+/* Halfway Line & Subtle Center Circle */
 .pitch-halfway {
     position: absolute;
     top: 50%;
@@ -566,47 +545,7 @@ canvas {
     50% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
 }
 
-/* Penalty D-Arcs */
-.penalty-d-top,
-.penalty-d-bottom {
-    position: absolute;
-    left: 50%;
-    width: 130px;
-    height: 30px;
-    border: 1px solid var(--pitch-chalk-dim);
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.penalty-d-top {
-    top: 0;
-    border-top: none;
-    border-radius: 0 0 65px 65px;
-}
-
-.penalty-d-bottom {
-    bottom: 0;
-    border-bottom: none;
-    border-radius: 65px 65px 0 0;
-}
-
-/* Monospace Touchline Annotations */
-.touchline-label {
-    position: absolute;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
-    color: rgba(232, 200, 118, 0.35);
-    pointer-events: none;
-    user-select: none;
-    z-index: 2;
-}
-
-.label-top { top: 10px; left: 50%; transform: translateX(-50%); }
-.label-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
-
-/* Inner Content Dossier */
+/* About Content */
 .about-content-box {
     position: relative;
     z-index: 5;
@@ -643,8 +582,8 @@ canvas {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--live-match-red);
-    box-shadow: 0 0 6px var(--live-match-red);
+    background: var(--var-confirmed-green);
+    box-shadow: 0 0 6px var(--var-confirmed-green);
     animation: liveBeat 1.4s infinite;
 }
 
@@ -655,16 +594,6 @@ canvas {
 
 .scout-tag {
     color: var(--bright-champagne-gold);
-}
-
-.spin-ball {
-    font-size: 0.95rem;
-    animation: ballSpin 4s linear infinite;
-}
-
-@keyframes ballSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 .about-heading-row {
@@ -693,7 +622,7 @@ canvas {
     letter-spacing: 0.12em;
 }
 
-/* Editorial Body Text */
+/* Verbatim Narrative Body */
 .about-bio p {
     font-family: var(--font-sans);
     font-size: 1.02rem;
@@ -712,12 +641,12 @@ canvas {
     font-weight: 600;
 }
 
-/* Tactical Position Chips */
+/* Clean Tech Spans */
 .tactical-chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.12rem 0.5rem;
+    gap: 0.25rem;
+    padding: 0.1rem 0.45rem;
     background: var(--gold-turf-glow);
     border: 1px solid var(--gold-chalk-line);
     border-radius: 4px;
@@ -725,15 +654,13 @@ canvas {
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--bright-champagne-gold);
-    position: relative;
-    cursor: pointer;
     transition: all 0.25s ease;
     white-space: nowrap;
     margin: 0 0.12rem;
 }
 
 .tactical-chip i {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--championship-gold);
 }
 
@@ -750,32 +677,7 @@ canvas {
     color: var(--off-white-chalk);
 }
 
-.tactical-chip::after {
-    content: attr(data-role);
-    position: absolute;
-    bottom: calc(100% + 5px);
-    left: 50%;
-    transform: translateX(-50%) translateY(4px);
-    background: var(--dossier-deep-green);
-    border: 1px solid var(--championship-gold);
-    color: var(--championship-gold);
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    padding: 0.15rem 0.45rem;
-    border-radius: 3px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-}
-
-.tactical-chip:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Minimal Tactical Stats Row */
+/* Everyday Developer Milestones Row */
 .tactical-stats-strip {
     display: flex;
     align-items: center;
@@ -816,7 +718,7 @@ canvas {
     font-size: 0.8rem;
 }
 
-/* Tactical Passing Animation Strip */
+/* Philosophy & Status Strip */
 .tactical-bottom-strip {
     position: relative;
     display: flex;
@@ -865,12 +767,13 @@ canvas {
     font-style: italic;
     font-size: 0.82rem;
     color: var(--bright-champagne-gold);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
-.var-badge {
+.status-ready-badge {
     font-family: var(--font-mono);
     font-size: 0.72rem;
+    font-weight: 700;
     color: var(--var-confirmed-green);
     display: inline-flex;
     align-items: center;
@@ -921,7 +824,7 @@ canvas {
 }
 
 /* ==========================================================================
-   PROJECTS (FEATURED DEPLOYMENTS & FIXTURES)
+   FEATURED PROJECTS
    ========================================================================== */
 .fixtures-grid {
     display: grid;
@@ -1133,191 +1036,84 @@ canvas {
 }
 
 /* ==========================================================================
-   SKILLS (STARTING XI & TRAINING GROUND)
+   TECHNICAL SKILLS & STACK
    ========================================================================== */
 .tactics-wrapper {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.35fr 1fr;
     gap: 2rem;
     align-items: stretch;
 }
 
-.lineup-pitch {
-    position: relative;
-    border-radius: 10px;
-    border: 1.5px solid var(--gold-chalk-line);
-    background-color: var(--dossier-deep-green);
-    background-image: repeating-linear-gradient(
-        180deg,
-        var(--dark-turf-stripe-a) 0px,
-        var(--dark-turf-stripe-a) 45px,
-        var(--dark-turf-stripe-b) 45px,
-        var(--dark-turf-stripe-b) 90px
-    );
-    box-shadow: inset 0 0 40px var(--deep-pitch-shadow);
-    padding: 2rem 1.25rem;
+.skills-grid-board {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 560px;
+    gap: 1.25rem;
 }
 
-.board-line-half {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--pitch-chalk-dim);
-    pointer-events: none;
+.skill-category-box {
+    background: var(--tactical-card-tint);
+    border: 1px solid var(--gold-chalk-line);
+    border-radius: 10px;
+    padding: 1.25rem;
 }
 
-.board-circle-mid {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 110px;
-    height: 110px;
-    border: 1px solid var(--pitch-chalk-dim);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-.board-box-top,
-.board-box-bottom {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 180px;
-    height: 40px;
-    border: 1px solid var(--pitch-chalk-dim);
-    pointer-events: none;
-}
-.board-box-top { top: 0; border-top: none; }
-.board-box-bottom { bottom: 0; border-bottom: none; }
-
-.pitch-zone {
-    position: relative;
-    z-index: 5;
-    margin-bottom: 1.25rem;
-}
-
-.zone-label {
+.category-heading {
     display: block;
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     color: var(--bright-champagne-gold);
-    text-align: center;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.85rem;
 }
 
-.tokens-row {
+.skill-chips-row {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tech-item-card {
+    display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.keeper-row {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.75rem;
-}
-
-.player-token {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    cursor: pointer;
-    transition: transform 0.25s ease;
-}
-
-.player-token:hover {
-    transform: translateY(-4px);
-}
-
-.token-shirt {
-    position: relative;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #18221a, #080d09);
-    border: 2px solid var(--off-white-chalk);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    padding: 0.55rem 0.9rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(232, 200, 118, 0.25);
+    border-radius: 6px;
     transition: all 0.25s ease;
 }
 
-.player-token:hover .token-shirt {
+.tech-item-card:hover {
     border-color: var(--championship-gold);
-    box-shadow: 0 0 14px var(--championship-gold);
+    background: var(--gold-turf-glow);
+    transform: translateY(-2px);
 }
 
-.gold-shirt {
-    border-color: var(--championship-gold);
-    background: linear-gradient(135deg, #2b2005, #140e02);
+.tech-icon-colored {
+    font-size: 1.35rem;
 }
 
-.captain-shirt {
-    border-color: var(--championship-gold);
-    box-shadow: 0 0 10px rgba(252, 176, 0, 0.35);
-}
+.tech-icon-colored.html { color: #e34c26; }
+.tech-icon-colored.css { color: #264de4; }
+.tech-icon-colored.js { color: #f7df1e; }
+.tech-icon-colored.react { color: #61dafb; }
+.tech-icon-colored.ts { color: #3178c6; }
+.tech-icon-colored.node { color: #68a063; }
+.tech-icon-colored.git { color: #f05032; }
+.tech-icon-colored.responsive { color: var(--bright-champagne-gold); }
+.tech-icon-colored.api { color: var(--championship-gold); }
+.tech-icon-colored.code { color: var(--var-confirmed-green); }
 
-.c-armband {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 14px;
-    height: 14px;
-    background: var(--championship-gold);
-    color: #000;
+.tech-label {
     font-family: var(--font-mono);
-    font-weight: 800;
-    font-size: 0.6rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.keeper-shirt {
-    border-color: #38bdf8;
-    background: linear-gradient(135deg, #0c202d, #050e14);
-}
-
-.shirt-num {
-    font-family: var(--font-mono);
-    font-weight: 800;
-    font-size: 0.9rem;
-    color: var(--off-white-chalk);
-    line-height: 1;
-}
-
-.shirt-pos {
-    font-family: var(--font-mono);
-    font-size: 0.52rem;
-    color: var(--bright-champagne-gold);
-}
-
-.token-title {
-    font-family: var(--font-mono);
+    font-size: 0.8rem;
     font-weight: 700;
-    font-size: 0.7rem;
     color: var(--off-white-chalk);
-    background: rgba(0, 0, 0, 0.6);
-    padding: 0.1rem 0.35rem;
-    border-radius: 3px;
-    white-space: nowrap;
 }
 
-/* Training Attributes Panel */
+/* Proficiency Panel */
 .training-panel {
     background: var(--tactical-card-tint);
     border: 1px solid var(--gold-chalk-line);
@@ -1387,7 +1183,7 @@ canvas {
 }
 
 /* ==========================================================================
-   CONTACT (TRANSFER WINDOW & CONTRACT)
+   CONTACT & INQUIRIES
    ========================================================================== */
 .transfer-box {
     display: grid;
@@ -1403,20 +1199,6 @@ canvas {
     border-radius: 10px;
     padding: 2.25rem 1.75rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-}
-
-.stamp-official {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 0.25rem 0.65rem;
-    border: 2px dashed var(--live-match-red);
-    color: var(--live-match-red);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    transform: rotate(6deg);
 }
 
 .contract-title-wrap {
@@ -1498,7 +1280,8 @@ canvas {
 .btn-contract-submit {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0.5rem;
     background: linear-gradient(135deg, var(--championship-gold) 0%, #cf8e00 100%);
     border: none;
     border-radius: 6px;
@@ -1666,7 +1449,7 @@ canvas {
 }
 
 /* ==========================================================================
-   FOOTER
+   FOOTER (RECRUITER & UNIVERSAL FRIENDLY)
    ========================================================================== */
 .match-footer {
     position: relative;
@@ -1676,24 +1459,9 @@ canvas {
 }
 
 .footer-ball-line {
-    position: relative;
     width: 100%;
-    height: 3px;
-    background: var(--gold-chalk-line);
-    overflow: hidden;
-}
-
-.ball-runner {
-    position: absolute;
-    top: -8px;
-    left: 0;
-    font-size: 0.85rem;
-    animation: rollAcross 20s linear infinite;
-}
-
-@keyframes rollAcross {
-    0% { left: -30px; transform: rotate(0deg); }
-    100% { left: 100%; transform: rotate(1800deg); }
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--championship-gold), transparent);
 }
 
 .footer-wrap {
@@ -1710,8 +1478,11 @@ canvas {
 .whistle-txt {
     font-family: var(--font-mono);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
     color: var(--championship-gold);
+    display: block;
+    margin-bottom: 0.25rem;
 }
 
 .foot-copy {
@@ -1816,10 +1587,6 @@ canvas {
     }
 
     .stat-sep {
-        display: none;
-    }
-
-    .touchline-label {
         display: none;
     }
 
