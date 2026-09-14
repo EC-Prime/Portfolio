@@ -2,14 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Emmanuel Chuma - Junior Full-Stack Developer</title>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <!-- Sidebar Navigation -->
     <aside>
+        <!-- Top Section: Circular Profile Image -->
+        <div class="sidebar-profile">
+            <div class="profile-avatar-wrap">
+                <img src="./logo.png" alt="Emmanuel Chuma" class="profile-avatar">
+                <span class="profile-status-dot"></span>
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">CHUMA</span>
+                <span class="profile-badge">#10 DEV</span>
+            </div>
+        </div>
+
+        <!-- Bar Icons (Untouched) -->
         <nav>
             <ul>
                 <li>
@@ -34,35 +53,539 @@
                 </li>
             </ul>
         </nav>
+
+        <!-- Bottom Section: LinkedIn, Email, GitHub Icons -->
+        <div class="sidebar-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+                <i class='bx bxl-linkedin'></i>
+            </a>
+            <a href="mailto:emmanuelchuma.dev@gmail.com" class="social-icon" aria-label="Email" title="Email">
+                <i class='bx bx-envelope'></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">
+                <i class='bx bxl-github'></i>
+            </a>
+        </div>
     </aside>
+
+    <!-- Main Content Area -->
     <main>
+        <!-- Top Compact Matchday Slider (Optimized for space) -->
         <div class="carousel">
-    <div class="carousel-track">
-        <div class="group">
-            <span class="card">▼ SCROLL DOWN TO CONTINUE ▼</span>
-            <span class="card">EMMANUEL CHUMA</span>
-            <span class="card">JUNIOR FULL-STACK DEVELOPER</span>
+            <div class="carousel-track">
+                <div class="group">
+                    <span class="ticker-badge">MATCHDAY</span>
+                    <span class="card">EMMANUEL CHUMA</span>
+                    <span class="ticker-dot">⚽</span>
+                    <span class="card">JUNIOR FULL-STACK DEVELOPER</span>
+                    <span class="ticker-dot">•</span>
+                    <span class="card">TACTICAL PLAYMAKER</span>
+                    <span class="ticker-dot">⚽</span>
+                    <span class="card">PASS ACCURACY: 99.4%</span>
+                    <span class="ticker-dot">•</span>
+                    <span class="card">SCROLL FOR KICK-OFF ▼</span>
+                </div>
+                <div class="group" aria-hidden="true">
+                    <span class="ticker-badge">MATCHDAY</span>
+                    <span class="card">EMMANUEL CHUMA</span>
+                    <span class="ticker-dot">⚽</span>
+                    <span class="card">JUNIOR FULL-STACK DEVELOPER</span>
+                    <span class="ticker-dot">•</span>
+                    <span class="card">TACTICAL PLAYMAKER</span>
+                    <span class="ticker-dot">⚽</span>
+                    <span class="card">PASS ACCURACY: 99.4%</span>
+                    <span class="ticker-dot">•</span>
+                    <span class="card">SCROLL FOR KICK-OFF ▼</span>
+                </div>
+            </div>
         </div>
-        <div class="group" aria-hidden="true">
-            <span class="card">▼ SCROLL DOWN TO CONTINUE ▼</span>
-            <span class="card">EMMANUEL CHUMA ▼</span>
-            <span class="card">JUNIOR FULL-STACK DEVELOPER</span>
-        </div>
-    </div>
-</div>
-   <section class="hero">
-        <canvas class="grid" id="grid"></canvas>
-        <div class="logo">
-            <img src="/logo.png" id="source" alt="">
-        </div>
-   </section>
-        <div class="about-content">
-            <h1>About Me</h1>
-            <p>Started properly in 2025 first year, first real lines of code that weren't just tinkering with basic HTML pages years before. Since then it's been a steady climb through <span>HTML</span>, <span>CSS</span>, and <span>JavaScript</span>, with <span>React</span> and <span>TypeScript </span>warming up on the touchline for what's next. Off the pitch: football obsessive, video game enthusiast, and a firm believer that a good philosophy book and a bad self-help podcast can both teach you something if you're paying attention. TV shows too yes, the cliché, no, I'm not sorry. All of it eventually spills into content creation, because apparently having opinions about the offside rule, a game mechanic, or a Stoic quote isn't complete until it's been turned into something to share. This site is where the coding half of that finally gets a proper stage.</p>
-        </div>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <canvas class="grid" id="grid"></canvas>
+            <div class="logo">
+                <img src="./logo.png" id="source" alt="Emmanuel Chuma Logo">
+            </div>
+            <a href="#about" class="kickoff-btn">
+                <span>KICK OFF MATCH</span>
+                <i class='bx bx-chevron-down'></i>
+            </a>
+        </section>
+
+        <!-- About Section with Pitch Line Border (Built First) -->
+        <section class="about-section" id="about">
+            <div class="pitch-container">
+                <!-- Corner Arcs and Fluttering Flags -->
+                <div class="pitch-corner top-left">
+                    <span class="corner-flag"></span>
+                    <span class="corner-arc"></span>
+                </div>
+                <div class="pitch-corner top-right">
+                    <span class="corner-flag"></span>
+                    <span class="corner-arc"></span>
+                </div>
+                <div class="pitch-corner bottom-left">
+                    <span class="corner-flag"></span>
+                    <span class="corner-arc"></span>
+                </div>
+                <div class="pitch-corner bottom-right">
+                    <span class="corner-flag"></span>
+                    <span class="corner-arc"></span>
+                </div>
+
+                <!-- Center Pitch Markings -->
+                <div class="pitch-halfway">
+                    <div class="pitch-center-circle">
+                        <div class="pitch-center-spot"></div>
+                    </div>
+                </div>
+
+                <!-- Penalty D-Arcs -->
+                <div class="penalty-d-top"></div>
+                <div class="penalty-d-bottom"></div>
+
+                <!-- Monospace Touchline Annotations -->
+                <div class="touchline-label label-top">[ TOUCHLINE NORTH // ATTACKING THIRD ]</div>
+                <div class="touchline-label label-bottom">[ TOUCHLINE SOUTH // RECOVERY PHASE ]</div>
+
+                <!-- Inner Content Dossier -->
+                <div class="about-content-box">
+                    <!-- Match Status Header -->
+                    <div class="about-meta-row">
+                        <div class="meta-tag dossier-tag">
+                            <span class="live-dot"></span>
+                            <span>MATCHDAY DOSSIER // #10</span>
+                        </div>
+                        <div class="meta-tag scout-tag">
+                            <i class='bx bx-football spin-ball'></i>
+                            <span>TACTICAL SCOUT REPORT</span>
+                        </div>
+                    </div>
+
+                    <div class="about-heading-row">
+                        <h1 class="about-title">About Me</h1>
+                        <span class="role-pill">#10 PLAYMAKER</span>
+                    </div>
+
+                    <!-- Clean Narrative with Tactical Chips -->
+                    <div class="about-bio">
+                        <p>
+                            Started properly in <strong>2025 first year</strong>, first real lines of code that weren't just tinkering with basic HTML pages years before. Since then it's been a steady climb through 
+                            <span class="tactical-chip" data-role="Structure"><i class='bx bxl-html5'></i> HTML</span>, 
+                            <span class="tactical-chip" data-role="Aesthetics"><i class='bx bxl-css3'></i> CSS</span>, and 
+                            <span class="tactical-chip" data-role="Engine"><i class='bx bxl-javascript'></i> JavaScript</span>, 
+                            with 
+                            <span class="tactical-chip sub-chip" data-role="Warming Up"><i class='bx bxl-react'></i> React</span> and 
+                            <span class="tactical-chip sub-chip" data-role="Touchline"><i class='bx bx-code-curly'></i> TypeScript</span> 
+                            warming up on the touchline for what's next.
+                        </p>
+                        <p>
+                            Off the pitch: <em>football obsessive</em>, video game enthusiast, and a firm believer that a good philosophy book and a bad self-help podcast can both teach you something if you're paying attention. TV shows too—yes, the cliché, no, I'm not sorry.
+                        </p>
+                        <p>
+                            All of it eventually spills into content creation, because apparently having opinions about the offside rule, a game mechanic, or a Stoic quote isn't complete until it's been turned into something to share. This site is where the coding half of that finally gets a proper stage.
+                        </p>
+                    </div>
+
+                    <!-- Minimal Tactical Stats Row -->
+                    <div class="tactical-stats-strip">
+                        <div class="stat-unit">
+                            <span class="stat-digit">2025</span>
+                            <span class="stat-desc">DEBUT SEASON</span>
+                        </div>
+                        <div class="stat-sep">⚽</div>
+                        <div class="stat-unit">
+                            <span class="stat-digit">4-3-3</span>
+                            <span class="stat-desc">FORMATION</span>
+                        </div>
+                        <div class="stat-sep">•</div>
+                        <div class="stat-unit">
+                            <span class="stat-digit">99.4%</span>
+                            <span class="stat-desc">PASS ACCURACY</span>
+                        </div>
+                        <div class="stat-sep">⚽</div>
+                        <div class="stat-unit">
+                            <span class="stat-digit">90'+</span>
+                            <span class="stat-desc">MATCH STAMINA</span>
+                        </div>
+                    </div>
+
+                    <!-- Tactical Philosophy & Animated Passing Line -->
+                    <div class="tactical-bottom-strip">
+                        <div class="pass-track">
+                            <span class="pass-ball"></span>
+                        </div>
+                        <span class="philosophy-quote">"Control the midfield, control the game."</span>
+                        <span class="var-badge"><i class='bx bx-check-shield'></i> VAR CHECK: 100% CLEAN</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Fixtures & Deployments) -->
+        <section class="section-wrapper" id="projects">
+            <div class="section-heading-wrap">
+                <span class="section-tag"><i class='bx bx-trophy'></i> MATCH FIXTURES // DEPLOYMENTS</span>
+                <h2 class="section-title">Featured Deployments</h2>
+                <p class="section-subtitle">Full match reports of projects built with tactical precision, performance discipline, and clean aesthetic execution.</p>
+            </div>
+
+            <div class="fixtures-grid">
+                <!-- Match 1 -->
+                <article class="fixture-ticket">
+                    <div class="ticket-header">
+                        <span class="ticket-match">MATCH #01 // HOME FIXTURE</span>
+                        <span class="ticket-result win">3 - 0 FT</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="ticket-floodlight"></div>
+                        <div class="ticket-badges">
+                            <span class="f-badge clean"><i class='bx bx-star'></i> CLEAN SHEET</span>
+                            <span class="f-badge tech">CANVAS API</span>
+                            <span class="f-badge tech">JS ES6</span>
+                        </div>
+                        <h3 class="fixture-name">TACTIX-PRO // Digital Tactics Board</h3>
+                        <p class="fixture-summary">An interactive 2D football pitch strategy simulator enabling managers and creators to map passing channels, animate 1-2 give-and-goes, and export tactical diagrams.</p>
+                        <div class="fixture-stats">
+                            <div class="fx-stat"><strong>60 FPS</strong><span>Canvas Engine</span></div>
+                            <div class="fx-stat"><strong>11 vs 11</strong><span>Tactical Nodes</span></div>
+                            <div class="fx-stat"><strong>100%</strong><span>Pure Web Tech</span></div>
+                        </div>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#projects" class="btn-fixture primary"><span>⚽ KICK OFF (DEMO)</span></a>
+                        <a href="#projects" class="btn-fixture secondary"><i class='bx bx-code-alt'></i><span>SCOUT REPORT</span></a>
+                    </div>
+                </article>
+
+                <!-- Match 2 -->
+                <article class="fixture-ticket">
+                    <div class="ticket-header">
+                        <span class="ticket-match">MATCH #02 // DERBY CLASH</span>
+                        <span class="ticket-result winner">90' WINNER</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="ticket-floodlight"></div>
+                        <div class="ticket-badges">
+                            <span class="f-badge var"><i class='bx bx-check-double'></i> VAR CONFIRMED</span>
+                            <span class="f-badge tech">CSS ANIMATION</span>
+                            <span class="f-badge tech">SVG ENGINE</span>
+                        </div>
+                        <h3 class="fixture-name">OFFSIDE-IQ // Visual Rule Educator</h3>
+                        <p class="fixture-summary">Interactive visual playground breaking down complex laws of the game: calibrated 3D offside lines, phases of interference, and responsive VAR decision test scenarios.</p>
+                        <div class="fixture-stats">
+                            <div class="fx-stat"><strong>10+</strong><span>Interactive Drills</span></div>
+                            <div class="fx-stat"><strong>0.02s</strong><span>VAR Precision</span></div>
+                            <div class="fx-stat"><strong>A+</strong><span>Rules IQ</span></div>
+                        </div>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#projects" class="btn-fixture primary"><span>⚽ KICK OFF (DEMO)</span></a>
+                        <a href="#projects" class="btn-fixture secondary"><i class='bx bx-code-alt'></i><span>SCOUT REPORT</span></a>
+                    </div>
+                </article>
+
+                <!-- Match 3 -->
+                <article class="fixture-ticket">
+                    <div class="ticket-header">
+                        <span class="ticket-match">MATCH #03 // CUP FINAL</span>
+                        <span class="ticket-result win">4 - 1 FT</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="ticket-floodlight"></div>
+                        <div class="ticket-badges">
+                            <span class="f-badge gold"><i class='bx bx-trophy'></i> GOLD MEDAL</span>
+                            <span class="f-badge tech">FULL-STACK</span>
+                            <span class="f-badge tech">RESPONSIVE</span>
+                        </div>
+                        <h3 class="fixture-name">OMNISTACK // Club Kit Store & Ticketing</h3>
+                        <p class="fixture-summary">Modern athletic merchandise store and ticketing portal with live jersey customizer (name & number print preview), seat selector, and fluid shopping cart architecture.</p>
+                        <div class="fixture-stats">
+                            <div class="fx-stat"><strong>100ms</strong><span>Cart Response</span></div>
+                            <div class="fx-stat"><strong>Mobile</strong><span>First UI</span></div>
+                            <div class="fx-stat"><strong>Secure</strong><span>Checkout Flow</span></div>
+                        </div>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#projects" class="btn-fixture primary"><span>⚽ KICK OFF (DEMO)</span></a>
+                        <a href="#projects" class="btn-fixture secondary"><i class='bx bx-code-alt'></i><span>SCOUT REPORT</span></a>
+                    </div>
+                </article>
+
+                <!-- Match 4 -->
+                <article class="fixture-ticket">
+                    <div class="ticket-header">
+                        <span class="ticket-match">MATCH #04 // PRESS CONFERENCE</span>
+                        <span class="ticket-result press">CLEAN READ</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="ticket-floodlight"></div>
+                        <div class="ticket-badges">
+                            <span class="f-badge editorial"><i class='bx bx-book-open'></i> EDITORIAL</span>
+                            <span class="f-badge tech">TYPOGRAPHY</span>
+                            <span class="f-badge tech">DARK MODE</span>
+                        </div>
+                        <h3 class="fixture-name">STOIC PRESS // Thought & Game Essays</h3>
+                        <p class="fixture-summary">Editorial content engine where football tactical analysis, gaming mechanics, and Stoic philosophy converge, built with high-contrast dark typography and reading controls.</p>
+                        <div class="fixture-stats">
+                            <div class="fx-stat"><strong>99</strong><span>Lighthouse Score</span></div>
+                            <div class="fx-stat"><strong>Zero</strong><span>Dependencies</span></div>
+                            <div class="fx-stat"><strong>Pure</strong><span>Markdown Ready</span></div>
+                        </div>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#projects" class="btn-fixture primary"><span>⚽ KICK OFF (DEMO)</span></a>
+                        <a href="#projects" class="btn-fixture secondary"><i class='bx bx-code-alt'></i><span>SCOUT REPORT</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section (Starting XI & Attributes) -->
+        <section class="section-wrapper" id="skills">
+            <div class="section-heading-wrap">
+                <span class="section-tag"><i class='bx bx-grid-alt'></i> TACTICAL BOARD // FORMATION 4-3-3</span>
+                <h2 class="section-title">Starting XI & Tactical Stack</h2>
+                <p class="section-subtitle">Every tool in my development lineup has a specific tactical role on the pitch—from structural defense to creative attack.</p>
+            </div>
+
+            <div class="tactics-wrapper">
+                <!-- The Tactical Pitch Board -->
+                <div class="lineup-pitch">
+                    <div class="board-line-half"></div>
+                    <div class="board-circle-mid"></div>
+                    <div class="board-box-top"></div>
+                    <div class="board-box-bottom"></div>
+
+                    <!-- Attack Tier (Front Three) -->
+                    <div class="pitch-zone">
+                        <span class="zone-label">ATTACK // MODERN FRONT THREE</span>
+                        <div class="tokens-row">
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">11</span><span class="shirt-pos">LW</span></div>
+                                <span class="token-title">React.js</span>
+                            </div>
+                            <div class="player-token striker">
+                                <div class="token-shirt gold-shirt"><span class="shirt-num">9</span><span class="shirt-pos">ST</span></div>
+                                <span class="token-title">TypeScript</span>
+                            </div>
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">7</span><span class="shirt-pos">RW</span></div>
+                                <span class="token-title">Next.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Midfield Tier (Engine Room) -->
+                    <div class="pitch-zone">
+                        <span class="zone-label">MIDFIELD // PLAYMAKING ENGINE</span>
+                        <div class="tokens-row">
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">8</span><span class="shirt-pos">LCM</span></div>
+                                <span class="token-title">CSS3 & Motion</span>
+                            </div>
+                            <div class="player-token playmaker">
+                                <div class="token-shirt captain-shirt">
+                                    <span class="c-armband">C</span>
+                                    <span class="shirt-num">10</span>
+                                    <span class="shirt-pos">CAM</span>
+                                </div>
+                                <span class="token-title">JavaScript</span>
+                            </div>
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">6</span><span class="shirt-pos">CDM</span></div>
+                                <span class="token-title">HTML5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defense & GK Tier -->
+                    <div class="pitch-zone">
+                        <span class="zone-label">DEFENSE // BACKLINE & CLEAN SHEET</span>
+                        <div class="tokens-row">
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">3</span><span class="shirt-pos">LB</span></div>
+                                <span class="token-title">Responsive UI</span>
+                            </div>
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">4</span><span class="shirt-pos">CB</span></div>
+                                <span class="token-title">Node.js</span>
+                            </div>
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">5</span><span class="shirt-pos">CB</span></div>
+                                <span class="token-title">REST APIs</span>
+                            </div>
+                            <div class="player-token">
+                                <div class="token-shirt"><span class="shirt-num">2</span><span class="shirt-pos">RB</span></div>
+                                <span class="token-title">Git & GitHub</span>
+                            </div>
+                        </div>
+                        <div class="keeper-row">
+                            <div class="player-token keeper">
+                                <div class="token-shirt keeper-shirt"><span class="shirt-num">1</span><span class="shirt-pos">GK</span></div>
+                                <span class="token-title">Problem Solving</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Attributes Panel -->
+                <div class="training-panel">
+                    <div class="training-header">
+                        <i class='bx bx-dumbbell'></i>
+                        <span>TRAINING GROUND ATTRIBUTES</span>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-info"><span>Semantic Architecture & HTML5</span><strong>95%</strong></div>
+                        <div class="meter-track"><div class="meter-bar" style="width: 95%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-info"><span>Responsive CSS & Pure Motion</span><strong>92%</strong></div>
+                        <div class="meter-track"><div class="meter-bar" style="width: 92%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-info"><span>JavaScript Engine & DOM Dynamics</span><strong>88%</strong></div>
+                        <div class="meter-track"><div class="meter-bar" style="width: 88%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-info"><span>TypeScript & React Ecosystem</span><strong>84%</strong></div>
+                        <div class="meter-track"><div class="meter-bar" style="width: 84%;"></div></div>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-info"><span>Match Stamina, Grit & Mindset</span><strong>100%</strong></div>
+                        <div class="meter-track"><div class="meter-bar" style="width: 100%;"></div></div>
+                    </div>
+
+                    <div class="offside-badge">
+                        <i class='bx bx-check-shield'></i>
+                        <span>OFFSIDE TRAP IMMUNE: READY FOR HIGH-PRESS DEVELOPMENTS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (Transfer Window) -->
+        <section class="section-wrapper" id="contact">
+            <div class="section-heading-wrap">
+                <span class="section-tag"><i class='bx bx-transfer-alt'></i> TRANSFER WINDOW // NEGOTIATIONS</span>
+                <h2 class="section-title">Transfer Window & Contract</h2>
+                <p class="section-subtitle">Looking to sign a committed, high-work-rate developer for your squad or project? Submit your terms below.</p>
+            </div>
+
+            <div class="transfer-box">
+                <!-- Contract Dossier Form -->
+                <div class="contract-card">
+                    <div class="stamp-official"><span>OFFICIAL BID</span></div>
+                    <div class="contract-title-wrap">
+                        <i class='bx bx-receipt contract-icon'></i>
+                        <div>
+                            <span class="contract-sub">CONTRACT OFFER SHEET // FORM EC-2025</span>
+                            <h3 class="contract-h3">Player Sign-On Terms</h3>
+                        </div>
+                    </div>
+
+                    <form class="contract-form" action="mailto:emmanuelchuma.dev@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-split">
+                            <div class="form-field">
+                                <label for="club"><i class='bx bx-shield'></i> Club / Organization</label>
+                                <input type="text" id="club" name="Club" placeholder="e.g. Acme FC / Studios" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="scout-mail"><i class='bx bx-envelope'></i> Scout / Manager Email</label>
+                                <input type="email" id="scout-mail" name="Email" placeholder="manager@domain.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="transfer-type"><i class='bx bx-detail'></i> Transfer Type</label>
+                            <select id="transfer-type" name="TransferType">
+                                <option value="Full-Time Contract">Full-Time Contract (Junior Full-Stack)</option>
+                                <option value="Frontend Specialist">Frontend Specialist / UI Engineering</option>
+                                <option value="Loan / Freelance">Freelance / Project-Based Loan</option>
+                                <option value="Tactical Consultation">Technical Consultation & Collaboration</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="terms"><i class='bx bx-file'></i> Contract Proposal & Project Brief</label>
+                            <textarea id="terms" name="Message" rows="4" placeholder="Detail your project requirements, squad needs, or tech stack..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-contract-submit">
+                            <span>SIGN CONTRACT & TRANSMIT BID</span>
+                            <span class="penalty-shot">⚽ &rarr; 🥅</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Scouting Channels Desk -->
+                <div class="channels-card">
+                    <div class="scout-status-block">
+                        <div class="touchline-live"><span class="pulse-green"></span> STATUS: READY ON TOUCHLINE</div>
+                        <h4>Available for Immediate Selection</h4>
+                        <p>Currently open to junior full-stack opportunities, frontend roles, and innovative collaborations across web development.</p>
+                    </div>
+
+                    <div class="channels-list-block">
+                        <span class="channels-head">OFFICIAL PRESS ROOM & CHANNELS</span>
+                        <ul class="channels-ul">
+                            <li>
+                                <a href="mailto:emmanuelchuma.dev@gmail.com" class="channel-row">
+                                    <i class='bx bx-mail-send'></i>
+                                    <div><span>Direct Inquiries</span><strong>emmanuelchuma.dev@gmail.com</strong></div>
+                                    <i class='bx bx-chevron-right arrow'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com" target="_blank" rel="noopener" class="channel-row">
+                                    <i class='bx bxl-github'></i>
+                                    <div><span>Codebase Archive</span><strong>github.com/emmanuelchuma</strong></div>
+                                    <i class='bx bx-chevron-right arrow'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="channel-row">
+                                    <i class='bx bxl-linkedin'></i>
+                                    <div><span>Professional Network</span><strong>linkedin.com/in/emmanuelchuma</strong></div>
+                                    <i class='bx bx-chevron-right arrow'></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pitch-quote-card">
+                        <div class="pq-head"><i class='bx bx-bulb'></i> PITCH PHILOSOPHY</div>
+                        <p class="pq-text">"You don't win matches by complaining about the pitch condition. You adapt your tactics, play clean passes, and keep pressing until the final whistle."</p>
+                        <span class="pq-sign">— Emmanuel Chuma // #10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Whistle Footer -->
+        <footer class="match-footer">
+            <div class="footer-ball-line">
+                <div class="ball-runner">⚽</div>
+            </div>
+            <div class="footer-wrap">
+                <div>
+                    <span class="whistle-txt">FINAL WHISTLE // 90' + 4</span>
+                    <p class="foot-copy">© 2025 Emmanuel Chuma. Engineered with pure HTML & CSS.</p>
+                </div>
+                <a href="#home" class="btn-return-tunnel">
+                    <span>RETURN TO TUNNEL</span>
+                    <i class='bx bx-up-arrow-alt'></i>
+                </a>
+            </div>
+        </footer>
     </main>
-   
+
+    <!-- Canvas hero ASCII grid script -->
     <script type="module" src="./script.js"></script>
-    
 </body>
 </html>
