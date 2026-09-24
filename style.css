@@ -257,6 +257,7 @@ nav a {
 main {
     min-height: 100vh;
     margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
     position: relative;
     background-color: var(--stadium-black);
 }
@@ -329,7 +330,7 @@ main {
 /*  HERO SECTION*/
 .hero {
   position: relative;
-  width: 100vw;
+    width: 100%;
   height: 100vh;
   background-color: #0d0d0d;
 }
