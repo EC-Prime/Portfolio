@@ -259,7 +259,7 @@ main {
     margin-left: var(--sidebar-width);
     width: calc(100% - var(--sidebar-width));
     position: relative;
-    background-color: var(--stadium-black);
+    background: linear-gradient(180deg, var(--tunnel-dark-gradient-start) 0%, var(--tunnel-dark-gradient-end) 100%);
 }
 
 /* Compact Top Marquee Strip */
