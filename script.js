@@ -247,6 +247,20 @@ window.addEventListener('mouseleave', () => {
   mouse.isMoving = false;
 });
 
+const projectThreeToggle = document.getElementById('project-3-toggle');
+const projectThreeDetails = document.getElementById('project-3-details');
+const projectThreeComingSoon = document.getElementById('project-3-coming-soon');
+const projectThreeVisibilityLabel = document.querySelector('.project-visibility-state');
+
+projectThreeToggle.addEventListener('change', () => {
+  const isVisible = projectThreeToggle.checked;
+  projectThreeDetails.inert = !isVisible;
+  projectThreeDetails.setAttribute('aria-hidden', String(!isVisible));
+  projectThreeComingSoon.hidden = isVisible;
+  projectThreeComingSoon.setAttribute('aria-hidden', String(isVisible));
+  projectThreeVisibilityLabel.textContent = isVisible ? 'VISIBLE' : 'HIDDEN';
+});
+
 // Run initialization when image is fully loaded
 if (img.complete) {
   init();

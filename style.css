@@ -864,6 +864,71 @@ main {
     align-items: center;
 }
 
+.ticket-header.project-header {
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.project-visibility-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.project-visibility-control input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.project-switch-track {
+    position: relative;
+    width: 2rem;
+    height: 1.15rem;
+    flex: 0 0 auto;
+    border: 1px solid var(--gold-chalk-line);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-switch-track::after {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--muted-monospace-gray);
+    content: "";
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.project-visibility-control input:checked + .project-switch-track {
+    border-color: var(--bright-champagne-gold);
+    background: var(--bright-champagne-gold);
+}
+
+.project-visibility-control input:checked + .project-switch-track::after {
+    background: var(--stadium-black);
+    transform: translateX(0.85rem);
+}
+
+.project-visibility-control input:focus-visible + .project-switch-track {
+    outline: 2px solid var(--off-white-chalk);
+    outline-offset: 3px;
+}
+
+.project-visibility-state {
+    color: var(--bright-champagne-gold);
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 700;
+}
+
 .ticket-match {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -900,6 +965,53 @@ main {
 .ticket-body {
     padding: 1.5rem 1.25rem;
     flex: 1;
+}
+
+.project-preview-area {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.project-preview-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.project-coming-soon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: var(--bright-champagne-gold);
+    color: var(--stadium-black);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.project-coming-soon[hidden] {
+    display: none;
+}
+
+.project-coming-soon i {
+    font-size: 3rem;
+    animation: projectGearSpin 4s linear infinite;
+}
+
+@keyframes projectGearSpin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-coming-soon i {
+        animation-duration: 12s;
+    }
 }
 
 .ticket-badges {

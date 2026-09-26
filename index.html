@@ -271,28 +271,41 @@
 
                 <!-- Project 3 -->
                 <article class="fixture-ticket">
-                    <div class="ticket-header">
+                    <div class="ticket-header project-header">
                         <span class="ticket-match">PROJECT #03 // CHROME EXTENSION</span>
+                        <label class="project-visibility-control">
+                            <input type="checkbox" id="project-3-toggle" role="switch" aria-label="Project 3 details visible" aria-controls="project-3-details" checked>
+                            <span class="project-switch-track" aria-hidden="true"></span>
+                            <span class="project-visibility-state" aria-hidden="true">VISIBLE</span>
+                        </label>
                         <span class="ticket-result win">YOUTUBE</span>
                     </div>
-                    <div class="ticket-body">
-                        <div class="ticket-floodlight"></div>
-                        <div class="ticket-badges">
-                            <span class="f-badge gold"><i class='bx bx-shopping-bag'></i> YOUTUBE API</span>
-                            <span class="f-badge tech">Local-First</span>
-                            <span class="f-badge tech">TypeScript + React</span>
+                    <div class="project-preview-area">
+                        <div class="project-preview-content" id="project-3-details">
+                            <div class="ticket-body">
+                                <div class="ticket-floodlight"></div>
+                                <div class="ticket-badges">
+                                    <span class="f-badge gold"><i class='bx bx-shopping-bag'></i> YOUTUBE API</span>
+                                    <span class="f-badge tech">Local-First</span>
+                                    <span class="f-badge tech">TypeScript + React</span>
+                                </div>
+                                <h3 class="fixture-name">Shelfr</h3>
+                                <p class="fixture-summary">A Chrome extension that organizes your YouTube saved library into one searchable view, auto-sorted by topic. Currently in active design, pre-development.</p>
+                                <div class="fixture-stats">
+                                    <div class="fx-stat"><strong>Extension</strong><span>Manifest V3</span></div>
+                                    <div class="fx-stat"><strong>Smart Sort</strong><span>by Topic</span></div>
+                                    <div class="fx-stat"><strong>Coming Soon</strong><span>Web Store</span></div>
+                                </div>
+                            </div>
+                            <div class="ticket-footer">
+                                <a href="#projects" class="btn-fixture primary"><i class='bx bx-link-external'></i><span>LIVE DEMO</span></a>
+                                <a href="#projects" class="btn-fixture secondary"><i class='bx bxl-github'></i><span>VIEW CODE</span></a>
+                            </div>
                         </div>
-                        <h3 class="fixture-name">Shelfr</h3>
-                        <p class="fixture-summary">A Chrome extension that organizes your YouTube saved library into one searchable view, auto-sorted by topic. Currently in active design, pre-development.</p>
-                        <div class="fixture-stats">
-                            <div class="fx-stat"><strong>Extension</strong><span>Manifest V3</span></div>
-                            <div class="fx-stat"><strong>Smart Sort</strong><span>by Topic</span></div>
-                            <div class="fx-stat"><strong>Coming Soon</strong><span>Web Store</span></div>
+                        <div class="project-coming-soon" id="project-3-coming-soon" aria-hidden="true" hidden>
+                            <i class='bx bx-cog' aria-hidden="true"></i>
+                            <span>COMING SOON</span>
                         </div>
-                    </div>
-                    <div class="ticket-footer">
-                        <a href="#projects" class="btn-fixture primary"><i class='bx bx-link-external'></i><span>LIVE DEMO</span></a>
-                        <a href="#projects" class="btn-fixture secondary"><i class='bx bxl-github'></i><span>VIEW CODE</span></a>
                     </div>
                 </article>
 
