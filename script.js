@@ -252,14 +252,17 @@ const projectThreeDetails = document.getElementById('project-3-details');
 const projectThreeComingSoon = document.getElementById('project-3-coming-soon');
 const projectThreeVisibilityLabel = document.querySelector('.project-visibility-state');
 
-projectThreeToggle.addEventListener('change', () => {
+function updateProjectThreeVisibility() {
   const isVisible = projectThreeToggle.checked;
   projectThreeDetails.inert = !isVisible;
   projectThreeDetails.setAttribute('aria-hidden', String(!isVisible));
   projectThreeComingSoon.hidden = isVisible;
   projectThreeComingSoon.setAttribute('aria-hidden', String(isVisible));
   projectThreeVisibilityLabel.textContent = isVisible ? 'VISIBLE' : 'HIDDEN';
-});
+}
+
+updateProjectThreeVisibility();
+projectThreeToggle.addEventListener('change', updateProjectThreeVisibility);
 
 // Run initialization when image is fully loaded
 if (img.complete) {
