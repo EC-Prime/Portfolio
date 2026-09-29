@@ -4,7 +4,7 @@ let CELL_GAP = 2;
 let CELL_STEP = CELL_SIZE + CELL_GAP;
 
 const GRID_COLOR = 'rgba(255, 255, 255, 0.05)';
-const CHARACTER_COLOR = '#FFFFFF';
+const CHARACTER_COLOR = '#fcb000';
 const ASCII_CHARS = '@#$%=+*:-. ';
 const BRIGHTNESS_THRESHOLD = 50;
 
@@ -144,7 +144,7 @@ function renderFrame() {
     ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
     drawGrid();
 
-    ctx.font = `${CELL_SIZE}px monospace`;
+    ctx.font = `${CELL_SIZE}px 'DM Mono', monospace`;
     ctx.fillStyle = CHARACTER_COLOR;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
