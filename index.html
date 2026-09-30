@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <canvas id="ambient-background" aria-hidden="true"></canvas>
+
     <aside>
         <div class="sidebar-profile">
             <div class="profile-avatar-wrap">
@@ -107,6 +109,11 @@
             <div class="logo">
                 <img src="/images/logo.png" id="source" alt="Emmanuel Chuma Logo">
             </div>
+            <p class="hero-subtitle" aria-label="Junior full-stack developer, building with code and curiosity">
+                <span>JUNIOR FULL-STACK DEVELOPER</span>
+                <span class="hero-subtitle-divider" aria-hidden="true">//</span>
+                <span>BUILDING WITH CODE &amp; CURIOSITY</span>
+            </p>
             <a href="#about" class="explore-btn">
                 <span>EXPLORE PORTFOLIO</span>
                 <i class='bx bx-chevron-down'></i>
@@ -115,7 +122,8 @@
 
         <!-- About Section -->
         <section class="about-section" id="about">
-            <div class="pitch-container">
+            <div class="about-feature">
+        <div class="pitch-container">
                 <div class="pitch-corner top-left"><span class="corner-arc"></span></div>
                 <div class="pitch-corner top-right"><span class="corner-arc"></span></div>
                 <div class="pitch-corner bottom-left"><span class="corner-arc"></span></div>
@@ -183,6 +191,12 @@
                         <span class="status-ready-badge"><i class='bx bx-check-circle'></i> READY FOR HIRE</span>
                     </div>
                 </div>
+        </div>
+                <figure class="gold-trace-figure">
+                    <img id="gold-trace-source" src="./images/images.jpg" alt="" hidden>
+                    <canvas id="gold-trace-canvas" width="300" height="400" role="img" aria-label="Golden contour trace of a footballer balancing a ball"></canvas>
+                    <figcaption>GOLD TRACE <span>//</span> MATCHDAY</figcaption>
+                </figure>
             </div>
         </section>
 
