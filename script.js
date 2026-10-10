@@ -273,91 +273,117 @@ window.addEventListener('resize', () => {
     if (ambientReducedMotion) drawAmbientRain(false);
 });
 
-const traceCanvas = document.getElementById('gold-trace-canvas');
-const traceContext = traceCanvas.getContext('2d');
-const traceSource = document.getElementById('gold-trace-source');
-const traceImageCanvas = document.createElement('canvas');
-traceImageCanvas.width = traceCanvas.width;
-traceImageCanvas.height = traceCanvas.height;
-const traceImageContext = traceImageCanvas.getContext('2d');
-let traceReady = false;
+function initializeGoldenTrace(sourceId, canvasId) {
+    const traceSource = document.getElementById(sourceId);
+    const traceCanvas = document.getElementById(canvasId);
+    const traceContext = traceCanvas.getContext('2d');
+    const traceImageCanvas = document.createElement('canvas');
+    traceImageCanvas.width = traceCanvas.width;
+    traceImageCanvas.height = traceCanvas.height;
+    const traceImageContext = traceImageCanvas.getContext('2d');
 
-function buildGoldenTrace() {
-    const width = traceImageCanvas.width;
-    const height = traceImageCanvas.height;
-    const scale = Math.min(width / traceSource.naturalWidth, height / traceSource.naturalHeight);
-    const imageWidth = traceSource.naturalWidth * scale;
-    const imageHeight = traceSource.naturalHeight * scale;
+    function buildGoldenTrace() {
+        const width = traceImageCanvas.width;
+        const height = traceImageCanvas.height;
+        const scale = Math.min(width / traceSource.naturalWidth, height / traceSource.naturalHeight);
+        const imageWidth = traceSource.naturalWidth * scale;
+        const imageHeight = traceSource.naturalHeight * scale;
 
-    traceImageContext.clearRect(0, 0, width, height);
-    traceImageContext.drawImage(traceSource, (width - imageWidth) / 2, (height - imageHeight) / 2, imageWidth, imageHeight);
+        traceImageContext.clearRect(0, 0, width, height);
+        traceImageContext.drawImage(traceSource, (width - imageWidth) / 2, (height - imageHeight) / 2, imageWidth, imageHeight);
 
-    const sourcePixels = traceImageContext.getImageData(0, 0, width, height).data;
-    const luminance = new Float32Array(width * height);
-    const edges = traceImageContext.createImageData(width, height);
+        const sourcePixels = traceImageContext.getImageData(0, 0, width, height).data;
+        const luminance = new Float32Array(width * height);
+        const edges = traceImageContext.createImageData(width, height);
 
-    for (let index = 0; index < luminance.length; index++) {
-        const pixel = index * 4;
-        luminance[index] = (0.2126 * sourcePixels[pixel] + 0.7152 * sourcePixels[pixel + 1] + 0.0722 * sourcePixels[pixel + 2]) / 255;
-    }
-
-    for (let y = 1; y < height - 1; y++) {
-        for (let x = 1; x < width - 1; x++) {
-            const topLeft = luminance[(y - 1) * width + x - 1];
-            const top = luminance[(y - 1) * width + x];
-            const topRight = luminance[(y - 1) * width + x + 1];
-            const left = luminance[y * width + x - 1];
-            const right = luminance[y * width + x + 1];
-            const bottomLeft = luminance[(y + 1) * width + x - 1];
-            const bottom = luminance[(y + 1) * width + x];
-            const bottomRight = luminance[(y + 1) * width + x + 1];
-            const horizontal = -topLeft + topRight - 2 * left + 2 * right - bottomLeft + bottomRight;
-            const vertical = -topLeft - 2 * top - topRight + bottomLeft + 2 * bottom + bottomRight;
-            const strength = Math.hypot(horizontal, vertical);
-
-            if (strength < 0.48) continue;
-
-            const pixel = (y * width + x) * 4;
-            edges.data[pixel] = 232;
-            edges.data[pixel + 1] = 200;
-            edges.data[pixel + 2] = 118;
-            edges.data[pixel + 3] = Math.min(230, 55 + (strength - 0.48) * 220);
+        for (let index = 0; index < luminance.length; index++) {
+            const pixel = index * 4;
+            luminance[index] = (0.2126 * sourcePixels[pixel] + 0.7152 * sourcePixels[pixel + 1] + 0.0722 * sourcePixels[pixel + 2]) / 255;
         }
+
+        for (let y = 1; y < height - 1; y++) {
+            for (let x = 1; x < width - 1; x++) {
+                const topLeft = luminance[(y - 1) * width + x - 1];
+                const top = luminance[(y - 1) * width + x];
+                const topRight = luminance[(y - 1) * width + x + 1];
+                const left = luminance[y * width + x - 1];
+                const right = luminance[y * width + x + 1];
+                const bottomLeft = luminance[(y + 1) * width + x - 1];
+                const bottom = luminance[(y + 1) * width + x];
+                const bottomRight = luminance[(y + 1) * width + x + 1];
+                const horizontal = -topLeft + topRight - 2 * left + 2 * right - bottomLeft + bottomRight;
+                const vertical = -topLeft - 2 * top - topRight + bottomLeft + 2 * bottom + bottomRight;
+                const strength = Math.hypot(horizontal, vertical);
+
+                if (strength < 0.48) continue;
+
+                const pixel = (y * width + x) * 4;
+                edges.data[pixel] = 232;
+                edges.data[pixel + 1] = 200;
+                edges.data[pixel + 2] = 118;
+                edges.data[pixel + 3] = Math.min(230, 55 + (strength - 0.48) * 220);
+            }
+        }
+
+        traceImageContext.clearRect(0, 0, width, height);
+        traceImageContext.putImageData(edges, 0, 0);
     }
 
-    traceImageContext.clearRect(0, 0, width, height);
-    traceImageContext.putImageData(edges, 0, 0);
-    traceReady = true;
+    function renderGoldenTrace() {
+        traceContext.clearRect(0, 0, traceCanvas.width, traceCanvas.height);
+        traceContext.save();
+        traceContext.globalAlpha = 0.8;
+        traceContext.shadowColor = '#fcb000';
+        traceContext.shadowBlur = 18;
+        traceContext.drawImage(traceImageCanvas, 0, 0);
+        traceContext.globalAlpha = 0.95;
+        traceContext.shadowBlur = 0;
+        traceContext.drawImage(traceImageCanvas, 0, 0);
+        traceContext.restore();
+    }
+
+    function startGoldenTrace() {
+        buildGoldenTrace();
+        renderGoldenTrace();
+    }
+
+    if (traceSource.complete && traceSource.naturalWidth > 0) startGoldenTrace();
+    else traceSource.addEventListener('load', startGoldenTrace, { once: true });
 }
 
-function renderGoldenTrace() {
-    if (!traceReady) return;
+initializeGoldenTrace('gold-trace-source', 'gold-trace-canvas');
+initializeGoldenTrace('skills-trace-source', 'skills-trace-canvas');
 
-    const width = traceCanvas.width;
-    const height = traceCanvas.height;
-    traceContext.clearRect(0, 0, width, height);
-    traceContext.save();
-    traceContext.globalAlpha = 0.8;
-    traceContext.shadowColor = '#fcb000';
-    traceContext.shadowBlur = 18;
-    traceContext.drawImage(traceImageCanvas, 0, 0);
-    traceContext.globalAlpha = 0.95;
-    traceContext.shadowBlur = 0;
-    traceContext.drawImage(traceImageCanvas, 0, 0);
-    traceContext.restore();
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function enableRevealAnimations() {
+    document.body.classList.add('motion-ready');
+
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    revealElements.forEach((element, index) => {
+        element.style.setProperty('--reveal-delay', `${Math.min(index * 80, 360)}ms`);
+        if (prefersReducedMotion) {
+            element.classList.add('is-visible');
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -6% 0px'
+        });
+
+        observer.observe(element);
+    });
 }
-
-function startGoldenTrace() {
-    buildGoldenTrace();
-    renderGoldenTrace();
-}
-
-if (traceSource.complete && traceSource.naturalWidth > 0) startGoldenTrace();
-else traceSource.addEventListener('load', startGoldenTrace, { once: true });
 
 if (img.complete) {
     init();
     animate();
+    enableRevealAnimations();
 } else {
-    img.addEventListener('load', () => { init(); animate(); });
+    img.addEventListener('load', () => { init(); animate(); enableRevealAnimations(); });
 }

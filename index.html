@@ -104,16 +104,11 @@
         </div>
 
         <!-- Hero Section -->
-        <section class="hero" id="home">
+        <section class="hero reveal-on-scroll" id="home">
             <canvas class="grid" id="grid"></canvas>
             <div class="logo">
                 <img src="/images/logo.png" id="source" alt="Emmanuel Chuma Logo">
             </div>
-            <p class="hero-subtitle" aria-label="Junior full-stack developer, building with code and curiosity">
-                <span>JUNIOR FULL-STACK DEVELOPER</span>
-                <span class="hero-subtitle-divider" aria-hidden="true">//</span>
-                <span>BUILDING WITH CODE &amp; CURIOSITY</span>
-            </p>
             <a href="#about" class="explore-btn">
                 <span>EXPLORE PORTFOLIO</span>
                 <i class='bx bx-chevron-down'></i>
@@ -121,96 +116,51 @@
         </section>
 
         <!-- About Section -->
-        <section class="about-section" id="about">
+        <section class="about-section reveal-on-scroll" id="about">
             <div class="about-feature">
-        <div class="pitch-container">
-                <div class="pitch-corner top-left"><span class="corner-arc"></span></div>
-                <div class="pitch-corner top-right"><span class="corner-arc"></span></div>
-                <div class="pitch-corner bottom-left"><span class="corner-arc"></span></div>
-                <div class="pitch-corner bottom-right"><span class="corner-arc"></span></div>
-
-                <div class="pitch-halfway">
-                    <div class="pitch-center-circle">
-                        <div class="pitch-center-spot"></div>
-                    </div>
-                </div>
+                <figure class="gold-trace-figure reveal-on-scroll">
+                    <img id="gold-trace-source" src="./images/images.jpg" alt="" hidden>
+                    <canvas id="gold-trace-canvas" width="300" height="400" role="img" aria-label="Golden contour trace of a footballer pointing upward toward the Explore Portfolio button"></canvas>
+                    <figcaption>GOLD TRACE <span>//</span> MATCHDAY</figcaption>
+                </figure>
 
                 <div class="about-content-box">
-                    <div class="about-meta-row">
-                        <div class="meta-tag dossier-tag">
-                            <span class="live-dot"></span>
-                            <span>DEVELOPER PROFILE</span>
-                        </div>
+                    <div class="about-meta-row reveal-on-scroll">
                         <div class="meta-tag scout-tag">
                             <i class='bx bx-code-alt'></i>
                             <span>FULL-STACK JOURNEY</span>
                         </div>
                     </div>
 
-                    <div class="about-heading-row">
-                        <h1 class="about-title">About Me</h1>
-                        <span class="role-pill">JUNIOR FULL-STACK</span>
+                    <div class="about-heading-row reveal-on-scroll">
+                        <h1 class="section-title">About Me</h1>
                     </div>
 
-                    <div class="about-bio">
-                        <p>
-                            I started coding for real in 2025, my first year properly writing lines that weren't just tinkering with basic HTML pages a few years earlier. Since then it's been a steady climb through <span class="tactical-chip"><i class='bx bxl-html5'></i> HTML</span>, <span class="tactical-chip"><i class='bx bxl-css3'></i> CSS</span>, and <span class="tactical-chip"><i class='bx bxl-javascript'></i> JavaScript</span>, with <span class="tactical-chip sub-chip"><i class='bx bxl-react'></i> React</span> and <span class="tactical-chip sub-chip"><i class='bx bx-code-curly'></i> TypeScript</span> next on the list. I'm a developer who likes building things end to end, the kind of systems that actually solve a problem for someone rather than just look good in a demo. And I'm still learning, on purpose, because claiming otherwise at this stage would be more embarrassing than useful.
+                    <div class="about-bio reveal-on-scroll">
+                        <p class="section-subtitle">
+                            I'm a software developer in Johannesburg, building toward a career in <span class="tactical-chip">Java</span> full stack. My path started with basic <span class="tactical-chip">HTML</span> tinkering, then picked up properly in 2025, and has moved steadily through <span class="tactical-chip">HTML</span>, <span class="tactical-chip">CSS</span>, and <span class="tactical-chip">JavaScript</span>. <span class="tactical-chip sub-chip">React</span> and <span class="tactical-chip sub-chip">TypeScript</span> are next, alongside <span class="tactical-chip">Spring Boot</span> and <span class="tactical-chip">PostgreSQL</span> on the Java side.
                         </p>
-                        <p>
-                            Outside of code: football obsessive, video game enthusiast, and a firm believer that a good philosophy book and a bad self-help podcast can both teach you something if you're paying attention. TV shows too, yes the cliché, no I'm not sorry. All of it eventually spills into content creation, because apparently having an opinion about the offside rule, a game mechanic, or a Stoic quote isn't complete until it's been turned into something to share. This site is where the coding side of that finally gets its own stage.
+                        <p class="section-subtitle">
+                            What drives me most is designing <span class="tactical-chip">end-to-end systems</span> that solve real problems, especially my own. I like owning a project from the <span class="tactical-chip">database</span> to the interface, and I care more about whether something works for the person using it than whether it looks good in a demo. I'm still learning, on purpose, and I'd rather be upfront about that than pretend otherwise.
                         </p>
                     </div>
 
-                    <div class="tactical-stats-strip">
-                        <div class="stat-unit">
-                            <span class="stat-digit">2025</span>
-                            <span class="stat-desc">JOURNEY STARTED</span>
-                        </div>
-                        <div class="stat-sep">•</div>
-                        <div class="stat-unit">
-                            <span class="stat-digit">FRONTEND</span>
-                            <span class="stat-desc">HTML • CSS • JS</span>
-                        </div>
-                        <div class="stat-sep">•</div>
-                        <div class="stat-unit">
-                            <span class="stat-digit">EXPANDING</span>
-                            <span class="stat-desc">REACT & TYPESCRIPT</span>
-                        </div>
-                        <div class="stat-sep">•</div>
-                        <div class="stat-unit">
-                            <span class="stat-digit">STATUS</span>
-                            <span class="stat-desc">AVAILABLE FOR HIRE</span>
-                        </div>
-                    </div>
-
-                    <div class="tactical-bottom-strip">
-                        <div class="pass-track">
-                            <span class="pass-ball"></span>
-                        </div>
-                        <span class="philosophy-quote">"Building clean, user-focused web experiences with code and curiosity."</span>
-                        <span class="status-ready-badge"><i class='bx bx-check-circle'></i> READY FOR HIRE</span>
-                    </div>
                 </div>
-        </div>
-                <figure class="gold-trace-figure">
-                    <img id="gold-trace-source" src="./images/images.jpg" alt="" hidden>
-                    <canvas id="gold-trace-canvas" width="300" height="400" role="img" aria-label="Golden contour trace of a footballer balancing a ball"></canvas>
-                    <figcaption>GOLD TRACE <span>//</span> MATCHDAY</figcaption>
-                </figure>
+
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section class="section-wrapper" id="projects">
-            <div class="section-heading-wrap">
+        <section class="section-wrapper reveal-on-scroll" id="projects">
+            <div class="section-heading-wrap reveal-on-scroll">
                 <span class="section-tag"><i class='bx bx-folder-open'></i> PORTFOLIO WORK</span>
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Real-world applications and interactive builds demonstrating frontend discipline, responsive design, and clean architecture.</p>
+                <p class="section-subtitle">Real-world applications and interactive builds demonstrating frontend discipline, responsive design, and clean backend architecture.</p>
             </div>
 
             <div class="fixtures-grid">
                 <!-- Project 1 -->
-                <article class="fixture-ticket">
+                <article class="fixture-ticket reveal-on-scroll" style="--reveal-delay: 80ms;">
                     <div class="ticket-header">
                         <span class="ticket-match">PROJECT #01 // PRODUCT LANDING PAGE</span>
                         <span class="ticket-result win">FEATURED</span>
@@ -237,7 +187,7 @@
                 </article>
 
                 <!-- Project 2 -->
-                <article class="fixture-ticket">
+                <article class="fixture-ticket reveal-on-scroll" style="--reveal-delay: 180ms;">
                     <div class="ticket-header">
                         <span class="ticket-match">PROJECT #02 // DAILY-QUOTE GENERATOR</span>
                         <span class="ticket-result winner">EDUCATIONAL</span>
@@ -264,7 +214,7 @@
                 </article>
 
                 <!-- Project 3 — centered below as pyramid base -->
-                <article class="fixture-ticket fixture-ticket--center">
+                <article class="fixture-ticket fixture-ticket--center reveal-on-scroll" style="--reveal-delay: 260ms;">
                     <div class="ticket-header">
                         <span class="ticket-match">PROJECT #03 // DESKTOP APP</span>
                         <span class="ticket-result press">GUI</span>
@@ -290,75 +240,81 @@
             </div>
         </section>
 
+        <figure class="gold-trace-figure project-gold-trace reveal-on-scroll">
+            <img id="skills-trace-source" src="./images/images%20(2).jpg" alt="" hidden>
+            <canvas id="skills-trace-canvas" width="300" height="400" role="img" aria-label="Golden contour trace of a footballer above the skills section"></canvas>
+            <figcaption>GOLD TRACE <span>//</span> SKILL SET</figcaption>
+        </figure>
+
         <!-- Skills Section -->
-        <section class="section-wrapper" id="skills">
-            <div class="section-heading-wrap">
+        <section class="section-wrapper reveal-on-scroll" id="skills">
+            <div class="section-heading-wrap reveal-on-scroll">
                 <span class="section-tag"><i class='bx bx-code-alt'></i> TECHNICAL STACK</span>
                 <h2 class="section-title">Skills & Technologies</h2>
                 <p class="section-subtitle">Core languages, frameworks, and developer tools I work with daily and am actively expanding.</p>
             </div>
 
             <div class="skills-grid-board">
-                <div class="skill-category-box">
+                <div class="skill-category-box reveal-on-scroll" style="--reveal-delay: 80ms;">
                     <span class="category-heading">LANGUAGES</span>
                     <div class="skill-chips-row">
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 150ms;">
                             <i class='bx bxl-html5 tech-icon-colored html'></i>
                             <span class="tech-label">HTML5</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 180ms;">
                             <i class='bx bxl-css3 tech-icon-colored css'></i>
                             <span class="tech-label">CSS3</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 210ms;">
                             <i class='bx bxl-javascript tech-icon-colored js'></i>
                             <span class="tech-label">JavaScript</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 240ms;">
                             <i class='bx bxl-java tech-icon-colored java'></i>
                             <span class="tech-label">Java</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 270ms;">
                             <i class='bx bx-data tech-icon-colored sql'></i>
                             <span class="tech-label">SQL</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 300ms;">
                             <i class='bx bx-code-curly tech-icon-colored ts'></i>
                             <span class="tech-label">TypeScript</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category-box">
+                <div class="skill-category-box reveal-on-scroll" style="--reveal-delay: 160ms;">
                     <span class="category-heading">FRAMEWORKS & ECOSYSTEM</span>
                     <div class="skill-chips-row">
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 200ms;">
                             <i class='bx bxl-react tech-icon-colored react'></i>
                             <span class="tech-label">React.js</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 230ms;">
                             <i class='bx bxl-nodejs tech-icon-colored node'></i>
                             <span class="tech-label">Node.js</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 260ms;">
                             <i class="devicon-spring-plain tech-icon-colored spring" aria-hidden="true"></i>
                             <span class="tech-label">Spring Boot</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category-box">
+                <div class="skill-category-box reveal-on-scroll" style="--reveal-delay: 240ms;">
                     <span class="category-heading">TOOLS & DATABASES</span>
                     <div class="skill-chips-row">
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 280ms;">
                             <i class="devicon-github-original tech-icon-colored github" aria-hidden="true"></i>
                             <span class="tech-label">GitHub</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 310ms;">
                             <i class="devicon-mysql-plain tech-icon-colored mysql" aria-hidden="true"></i>
                             <span class="tech-label">MySQL</span>
                         </div>
-                        <div class="tech-item-card">
+                        <div class="tech-item-card reveal-on-scroll" style="--reveal-delay: 340ms;">
                             <i class="devicon-postgresql-plain tech-icon-colored postgresql" aria-hidden="true"></i>
                             <span class="tech-label">PostgreSQL</span>
                         </div>
@@ -368,15 +324,15 @@
         </section>
 
         <!-- Certifications Section -->
-        <section class="section-wrapper" id="certs">
-            <div class="section-heading-wrap">
+        <section class="section-wrapper reveal-on-scroll" id="certs">
+            <div class="section-heading-wrap reveal-on-scroll">
                 <span class="section-tag"><i class='bx bx-award'></i> CREDENTIALS</span>
                 <h2 class="section-title">Certifications</h2>
                 <p class="section-subtitle">Verified credentials from recognised platforms, demonstrating hands-on learning and completed coursework.</p>
             </div>
 
             <div class="certs-grid">
-                <article class="cert-card">
+                <article class="cert-card reveal-on-scroll" style="--reveal-delay: 120ms;">
                     <div class="cert-image-wrap">
                         <img src="/images/ffc.png" alt="freeCodeCamp Responsive Web Design Certificate" class="cert-img">
                     </div>
@@ -395,15 +351,15 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="section-wrapper" id="contact">
-            <div class="section-heading-wrap">
+        <section class="section-wrapper reveal-on-scroll" id="contact">
+            <div class="section-heading-wrap reveal-on-scroll">
                 <span class="section-tag"><i class='bx bx-envelope'></i> GET IN TOUCH</span>
                 <h2 class="section-title">Contact & Inquiries</h2>
                 <p class="section-subtitle">Interested in working together or discussing an open position? Send a message and I'll get back to you promptly.</p>
             </div>
 
-            <div class="transfer-box">
-                <div class="contract-card">
+            <div class="transfer-box reveal-on-scroll">
+                <div class="contract-card reveal-on-scroll" style="--reveal-delay: 80ms;">
                     <div class="contract-title-wrap">
                         <i class='bx bx-mail-send contract-icon'></i>
                         <div>
@@ -485,10 +441,10 @@
         </section>
 
         <footer class="site-footer">
-            <p>© 2025 Emmanuel Chuma. All rights reserved.</p>
+            <p>© 2026 Emmanuel Chuma. All rights reserved.</p>
         </footer>
     </main>
 
-    <script type="module" src="./script.js"></script>
+    <script  src="./script.js"></script>
 </body>
 </html>
