@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caacupe+One&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -107,7 +107,7 @@
         <section class="hero reveal-on-scroll" id="home">
             <canvas class="grid" id="grid"></canvas>
             <div class="logo">
-                <img src="/images/logo.png" id="source" alt="Emmanuel Chuma Logo">
+                <img src="/images/logo.png" id="source" alt="Emmanuel Chuma Logo" decoding="async">
             </div>
             <a href="#about" class="explore-btn">
                 <span>EXPLORE PORTFOLIO</span>
@@ -119,9 +119,9 @@
         <section class="about-section reveal-on-scroll" id="about">
             <div class="about-feature">
                 <figure class="gold-trace-figure reveal-on-scroll">
-                    <img id="gold-trace-source" src="./images/images.jpg" alt="" hidden>
+                    <img id="gold-trace-source" data-src="./images/images.jpg" alt="" hidden>
                     <canvas id="gold-trace-canvas" width="300" height="400" role="img" aria-label="Golden contour trace of a footballer pointing upward toward the Explore Portfolio button"></canvas>
-                    <figcaption>GOLD TRACE <span>//</span> MATCHDAY</figcaption>
+                    <figcaption>Ronaldinho <span></span> 2005 Ballon d'Or</figcaption>
                 </figure>
 
                 <div class="about-content-box">
@@ -169,8 +169,8 @@
                         <div class="ticket-floodlight"></div>
                         <figure class="featured-project-media">
                             <a class="featured-project-video-link" href="https://github.com/EC-Prime/reeltrack" target="_blank" rel="noopener" aria-label="View the ReelTrack repository on GitHub">
-                                <video autoplay muted loop playsinline data-clip-end="30" aria-label="ReelTrack landing page demo, looping from 0:01 to 0:30">
-                                    <source src="./demos/reeltrack-demo.mp4" type="video/mp4">
+                                <video muted loop playsinline preload="none" data-clip-end="30" aria-label="ReelTrack landing page demo, looping from 0:01 to 0:30">
+                                    <source data-src="./demos/reeltrack-demo.mp4" type="video/mp4">
                                     Your browser does not support video playback.
                                 </video>
                             </a>
@@ -206,8 +206,8 @@
                         <div class="ticket-floodlight"></div>
                         <figure class="featured-project-media">
                             <a class="featured-project-video-link" href="https://github.com/EC-Prime/NovaBank-System" target="_blank" rel="noopener" aria-label="View the SecureBank repository on GitHub">
-                                <video autoplay muted loop playsinline data-clip-end="146" aria-label="SecureBank console banking system demo, looping from 0:01 to 2:26">
-                                    <source src="./demos/novaBank-demo.mp4" type="video/mp4">
+                                <video muted loop playsinline preload="none" data-clip-end="146" aria-label="SecureBank console banking system demo, looping from 0:01 to 2:26">
+                                    <source data-src="./demos/novaBank-demo.mp4" type="video/mp4">
                                     Your browser does not support video playback.
                                 </video>
                             </a>
@@ -239,8 +239,8 @@
                         <div class="ticket-floodlight"></div>
                         <figure class="featured-project-media">
                             <a class="featured-project-video-link" href="https://github.com/EC-Prime/Input-Validation-System" target="_blank" rel="noopener" aria-label="View the Input Validation System repository on GitHub">
-                                <video autoplay muted loop playsinline data-clip-end="71" aria-label="Input Validation System desktop application demo, looping from 0:01 to 1:11">
-                                    <source src="./demos/input-validation-demo.mp4" type="video/mp4">
+                                <video muted loop playsinline preload="none" data-clip-end="71" aria-label="Input Validation System desktop application demo, looping from 0:01 to 1:11">
+                                    <source data-src="./demos/input-validation-demo.mp4" type="video/mp4">
                                     Your browser does not support video playback.
                                 </video>
                             </a>
@@ -265,9 +265,9 @@
         </section>
 
         <figure class="gold-trace-figure project-gold-trace reveal-on-scroll">
-            <img id="skills-trace-source" src="./images/images%20(2).jpg" alt="" hidden>
+            <img id="skills-trace-source" data-src="./images/images%20(2).jpg" alt="" hidden>
             <canvas id="skills-trace-canvas" width="300" height="400" role="img" aria-label="Golden contour trace of a footballer above the skills section"></canvas>
-            <figcaption>GOLD TRACE <span>//</span> SKILL SET</figcaption>
+            <figcaption>Lionel Messi <span></span> '11 UCL Final</figcaption>
         </figure>
 
         <!-- Skills Section -->
@@ -358,7 +358,7 @@
             <div class="certs-grid">
                 <article class="cert-card reveal-on-scroll" style="--reveal-delay: 120ms;">
                     <div class="cert-image-wrap">
-                        <img src="/images/ffc.png" alt="freeCodeCamp Responsive Web Design Certificate" class="cert-img">
+                        <img src="/images/ffc.png" alt="freeCodeCamp Responsive Web Design Certificate" class="cert-img" loading="lazy" decoding="async">
                     </div>
                     <div class="cert-body">
                         <span class="cert-issuer"><i class='bx bx-award'></i> freeCodeCamp</span>
@@ -440,7 +440,7 @@
                             <li>
                                 <a href="mailto:emmanuelchuma.dev@gmail.com" class="channel-row">
                                     <i class='bx bx-mail-send'></i>
-                                    <div><span>Direct Email</span><strong>emmanuelchuma.dev@gmail.com</strong></div>
+                                    <div><span>Direct Email</span><strong>echuma792@gmail.com</strong></div>
                                     <i class='bx bx-chevron-right arrow'></i>
                                 </a>
                             </li>
@@ -469,6 +469,6 @@
         </footer>
     </main>
 
-    <script  src="./script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

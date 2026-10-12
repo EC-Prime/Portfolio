@@ -30,7 +30,6 @@ let mouseTimer = null;
 function setupCanvas() {
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
-
     if (width < 768) {
         CELL_SIZE = 8;
         CELL_GAP = 1;
@@ -196,11 +195,14 @@ window.addEventListener('mouseleave', () => {
 
 const ambientCanvas = document.getElementById('ambient-background');
 const ambientContext = ambientCanvas.getContext('2d', { alpha: true });
-const ambientReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let ambientWidth = 0;
 let ambientHeight = 0;
 let ambientDrops = [];
 let ambientFrameId = null;
+let ambientLastFrame = 0;
+let resizeFrameId = null;
+const AMBIENT_FRAME_INTERVAL = 1000 / 30;
 
 function resizeAmbientCanvas() {
     const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -210,12 +212,12 @@ function resizeAmbientCanvas() {
     ambientCanvas.height = ambientHeight * pixelRatio;
     ambientContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-    const dropCount = Math.min(185, Math.max(64, Math.round(ambientWidth * ambientHeight / 9200)));
+    const dropCount = Math.min(360, Math.max(120, Math.round(ambientWidth * ambientHeight / 4600)));
     ambientDrops = Array.from({ length: dropCount }, () => ({
         x: Math.random() * ambientWidth,
         y: Math.random() * ambientHeight,
-        length: 10 + Math.random() * 14,
-        speed: 1.05 + Math.random() * 1.95,
+        length: 12 + Math.random() * 16,
+        speed: 4.2 + Math.random() * 3.6,
         drift: -0.2 - Math.random() * 0.48,
         gold: Math.random() < 0.14
     }));
@@ -225,7 +227,8 @@ function drawAmbientRain(advanceDrops) {
     ambientContext.clearRect(0, 0, ambientWidth, ambientHeight);
     ambientContext.lineWidth = 1.15;
 
-    ambientDrops.forEach((drop) => {
+    for (let i = 0; i < ambientDrops.length; i++) {
+        const drop = ambientDrops[i];
         if (advanceDrops) {
             drop.x += drop.drift;
             drop.y += drop.speed;
@@ -235,42 +238,65 @@ function drawAmbientRain(advanceDrops) {
             }
             if (drop.x < -12) drop.x = ambientWidth + 12;
         }
+    }
 
-        ambientContext.strokeStyle = drop.gold
+    for (const gold of [false, true]) {
+        ambientContext.strokeStyle = gold
             ? 'rgba(232, 200, 118, 0.48)'
             : 'rgba(220, 225, 219, 0.3)';
         ambientContext.beginPath();
-        ambientContext.moveTo(drop.x, drop.y);
-        ambientContext.lineTo(drop.x + drop.drift * 3, drop.y + drop.length);
+        for (let i = 0; i < ambientDrops.length; i++) {
+            const drop = ambientDrops[i];
+            if (drop.gold !== gold) continue;
+            ambientContext.moveTo(drop.x, drop.y);
+            ambientContext.lineTo(drop.x + drop.drift * 3, drop.y + drop.length);
+        }
         ambientContext.stroke();
-    });
+    }
 }
 
-function animateAmbientRain() {
+function animateAmbientRain(timestamp) {
     if (document.hidden) {
         ambientFrameId = null;
         return;
     }
 
-    drawAmbientRain(true);
     ambientFrameId = window.requestAnimationFrame(animateAmbientRain);
+    if (timestamp - ambientLastFrame < AMBIENT_FRAME_INTERVAL) return;
+
+    ambientLastFrame = timestamp;
+    drawAmbientRain(true);
 }
 
 resizeAmbientCanvas();
 drawAmbientRain(false);
 
-if (!ambientReducedMotion) {
+if (!prefersReducedMotion) {
     ambientFrameId = window.requestAnimationFrame(animateAmbientRain);
-    document.addEventListener('visibilitychange', () => {
-        if (!document.hidden && ambientFrameId === null) {
-            ambientFrameId = window.requestAnimationFrame(animateAmbientRain);
-        }
-    });
 }
 
 window.addEventListener('resize', () => {
-    resizeAmbientCanvas();
-    if (ambientReducedMotion) drawAmbientRain(false);
+    if (resizeFrameId !== null) return;
+
+    resizeFrameId = window.requestAnimationFrame(() => {
+        resizeFrameId = null;
+        init();
+        resizeAmbientCanvas();
+        drawAmbientRain(false);
+    });
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        if (ambientFrameId !== null) window.cancelAnimationFrame(ambientFrameId);
+        ambientFrameId = null;
+        return;
+    }
+
+    if (!prefersReducedMotion && ambientFrameId === null) {
+        ambientLastFrame = 0;
+        ambientFrameId = window.requestAnimationFrame(animateAmbientRain);
+    }
 });
 
 function initializeGoldenTrace(sourceId, canvasId) {
@@ -342,48 +368,98 @@ function initializeGoldenTrace(sourceId, canvasId) {
         traceContext.restore();
     }
 
+    let traceVisible = false;
+    let traceStarted = false;
+
     function startGoldenTrace() {
+        if (!traceVisible || traceStarted || !traceSource.naturalWidth) return;
+        traceStarted = true;
         buildGoldenTrace();
         renderGoldenTrace();
     }
 
-    if (traceSource.complete && traceSource.naturalWidth > 0) startGoldenTrace();
-    else traceSource.addEventListener('load', startGoldenTrace, { once: true });
+    function loadGoldenTrace() {
+        if (traceSource.complete && traceSource.naturalWidth > 0) {
+            startGoldenTrace();
+            return;
+        }
+
+        traceVisible = true;
+        traceSource.addEventListener('load', startGoldenTrace, { once: true });
+        traceSource.addEventListener('error', () => {
+            console.error('Unable to load the golden trace image.', traceSource.dataset.src);
+        }, { once: true });
+        traceSource.src = traceSource.dataset.src;
+    }
+
+    if ('IntersectionObserver' in window) {
+        const traceObserver = new IntersectionObserver((entries, observer) => {
+            if (!entries[0].isIntersecting) return;
+            observer.disconnect();
+            loadGoldenTrace();
+        }, { rootMargin: '150px' });
+        traceObserver.observe(traceCanvas);
+    } else {
+        loadGoldenTrace();
+    }
 }
 
 initializeGoldenTrace('gold-trace-source', 'gold-trace-canvas');
 initializeGoldenTrace('skills-trace-source', 'skills-trace-canvas');
 
-document.querySelectorAll('.featured-project-media video').forEach((video) => {
+function initializeProjectVideo(video) {
+    const source = video.querySelector('source');
     const clipStart = 1;
     const configuredClipEnd = Number(video.dataset.clipEnd);
     video.playbackRate = 1.5;
+    video.controls = prefersReducedMotion;
     const startClip = () => { video.currentTime = clipStart; };
 
     video.addEventListener('loadedmetadata', startClip, { once: true });
+    video.addEventListener('error', () => {
+        console.error('Unable to load the project demo video.', video.error);
+    }, { once: true });
     video.addEventListener('timeupdate', () => {
         const clipEnd = configuredClipEnd || video.duration;
         const loopThreshold = configuredClipEnd ? clipEnd : clipEnd - 0.25;
         if (video.currentTime >= loopThreshold) startClip();
     });
 
-    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) startClip();
-});
+    const loadAndPlay = () => {
+        if (!source.src) {
+            source.src = source.dataset.src;
+            video.load();
+        }
+        if (prefersReducedMotion) return;
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const playback = video.play();
+        if (playback) {
+            playback.catch((error) => {
+                if (error.name !== 'NotAllowedError' && error.name !== 'AbortError') {
+                    console.error('Unable to play the project demo video.', error);
+                }
+            });
+        }
+    };
+
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            if (entries[0].intersectionRatio >= 0.2) loadAndPlay();
+            else video.pause();
+        }, { threshold: [0, 0.2] });
+        videoObserver.observe(video);
+    } else {
+        loadAndPlay();
+    }
+}
 
 function enableRevealAnimations() {
     document.body.classList.add('motion-ready');
 
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    revealElements.forEach((element, index) => {
-        element.style.setProperty('--reveal-delay', `${Math.min(index * 80, 360)}ms`);
-        if (prefersReducedMotion) {
-            element.classList.add('is-visible');
-            return;
-        }
-
-        const observer = new IntersectionObserver((entries) => {
+    const revealObserver = prefersReducedMotion || !('IntersectionObserver' in window)
+        ? null
+        : new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 entry.target.classList.toggle('is-visible', entry.isIntersecting);
             });
@@ -392,9 +468,18 @@ function enableRevealAnimations() {
             rootMargin: '0px 0px -6% 0px'
         });
 
-        observer.observe(element);
+    revealElements.forEach((element, index) => {
+        element.style.setProperty('--reveal-delay', `${Math.min(index * 80, 360)}ms`);
+        if (!revealObserver) {
+            element.classList.add('is-visible');
+            return;
+        }
+
+        revealObserver.observe(element);
     });
 }
+
+document.querySelectorAll('.featured-project-media video').forEach(initializeProjectVideo);
 
 if (img.complete) {
     init();

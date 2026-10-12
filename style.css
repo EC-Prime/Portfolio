@@ -2,35 +2,23 @@
     --championship-gold: #fcb000;
     --bright-champagne-gold: #e8c876;
     --gold-chalk-line: rgba(232, 200, 118, 0.45);
-    --pitch-chalk-dim: rgba(232, 200, 118, 0.18);
     --gold-turf-glow: rgba(252, 176, 0, 0.08);
 
     --stadium-black: #000000;
     --tunnel-dark-gradient-start: #080808;
     --tunnel-dark-gradient-end: #111111;
     --tactical-card-tint: rgba(0, 0, 0, 0.4);
-    --deep-pitch-shadow: rgba(0, 0, 0, 0.85);
-
-    --dark-turf-stripe-a: #070d09;
-    --dark-turf-stripe-b: #09120c;
-    --dossier-deep-green: #060907;
 
     --off-white-chalk: #f5f5f2;
     --editorial-body-gray: #d6d6d6;
     --muted-monospace-gray: #9ca3af;
 
-    --live-match-red: #ef4444;
     --var-confirmed-green: #4ade80;
-
-    --gold: var(--championship-gold);
-    --gold-bright: var(--bright-champagne-gold);
-    --white: var(--off-white-chalk);
 
     --sidebar-width: 180px;
     --ticker-height: 38px;
 
     --font-mono: 'DM Mono', monospace;
-    --font-serif: 'Caacupe One', serif;
     --font-sans: 'Inter', sans-serif;
 }
 
@@ -594,14 +582,6 @@ main {
     gap: 1.75rem;
 }
 
-/* Pyramid: third card centered below the top two */
-.fixture-ticket--center {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin-inline: auto;
-    width: 100%;
-}
-
 .fixture-ticket--featured {
     grid-column: 1 / -1;
 }
@@ -651,13 +631,6 @@ main {
     align-items: center;
 }
 
-.ticket-match {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--muted-monospace-gray);
-    letter-spacing: 0.1em;
-}
-
 .ticket-result {
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -676,12 +649,6 @@ main {
     background: rgba(252, 176, 0, 0.15);
     color: var(--championship-gold);
     border: 1px solid var(--championship-gold);
-}
-
-.ticket-result.press {
-    background: rgba(147, 197, 253, 0.15);
-    color: #93c5fd;
-    border: 1px solid #60a5fa;
 }
 
 .ticket-body {
@@ -782,41 +749,6 @@ main {
     color: var(--bright-champagne-gold);
 }
 
-.ticket-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 0.85rem;
-}
-
-.f-badge {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.15rem 0.45rem;
-    border-radius: 4px;
-}
-
-.f-badge.clean,
-.f-badge.gold,
-.f-badge.var {
-    background: var(--gold-turf-glow);
-    border: 1px solid var(--championship-gold);
-    color: var(--championship-gold);
-}
-
-.f-badge.editorial {
-    background: rgba(147, 197, 253, 0.1);
-    border: 1px solid #60a5fa;
-    color: #93c5fd;
-}
-
-.f-badge.tech {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
-}
-
 .fixture-name {
     font-family: var(--font-mono);
     font-size: 1.25rem;
@@ -830,38 +762,6 @@ main {
     color: var(--editorial-body-gray);
     line-height: 1.6;
     margin-bottom: 1.25rem;
-}
-
-.fixture-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0.75rem;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-}
-
-.fx-stat strong {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: var(--bright-champagne-gold);
-}
-
-.fx-stat span {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    color: var(--muted-monospace-gray);
-}
-
-.ticket-footer {
-    padding: 1rem 1.25rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    gap: 0.75rem;
 }
 
 .btn-fixture {
@@ -888,18 +788,6 @@ main {
     background: #ffbe1a;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(252, 176, 0, 0.35);
-}
-
-.btn-fixture.secondary {
-    background: transparent;
-    border: 1px solid var(--gold-chalk-line);
-    color: var(--bright-champagne-gold);
-}
-
-.btn-fixture.secondary:hover {
-    border-color: var(--championship-gold);
-    background: var(--gold-turf-glow);
-    color: var(--off-white-chalk);
 }
 
 /* SKILLS */
@@ -973,7 +861,6 @@ main {
 .tech-icon-colored.ts         { color: #3178c6; }
 .tech-icon-colored.node       { color: #68a063; }
 .tech-icon-colored.spring     { color: #6db33f; }
-.tech-icon-colored.git        { color: #f05032; }
 .tech-icon-colored.github     { color: #f5f5f2; }
 .tech-icon-colored.mysql      { color: #00758f; }
 .tech-icon-colored.postgresql { color: #336791; }
@@ -1315,12 +1202,130 @@ main {
         grid-template-columns: 1fr;
     }
 
-    .fixture-ticket--center {
-        max-width: 100%;
-    }
 }
 
 @media (max-width: 900px) {
+    :root {
+        --sidebar-width: 0px;
+        --mobile-header-height: 100px;
+    }
+
+    html {
+        scroll-padding-top: calc(var(--mobile-header-height) + var(--ticker-height) + 1rem);
+    }
+
+    aside {
+        top: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        height: var(--mobile-header-height);
+        display: grid;
+        grid-template-areas:
+            "profile socials"
+            "navigation navigation";
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: 42px 38px;
+        gap: 0.35rem;
+        padding: 0.45rem 0.75rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--gold-chalk-line);
+    }
+
+    .sidebar-profile {
+        grid-area: profile;
+        min-width: 0;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+
+    .profile-info {
+        min-width: 0;
+        text-align: left;
+    }
+
+    .profile-name {
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+
+    .profile-badge {
+        font-size: 0.55rem;
+        white-space: nowrap;
+    }
+
+    .profile-avatar-wrap {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+    }
+
+    nav {
+        grid-area: navigation;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--championship-gold) transparent;
+    }
+
+    nav::-webkit-scrollbar { height: 3px; }
+
+    nav ul {
+        width: max-content;
+        min-width: 100%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.35rem;
+    }
+
+    nav li {
+        flex: 0 0 auto;
+        min-height: 32px;
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 0.15rem 0.55rem;
+    }
+
+    nav a {
+        display: block;
+        font-size: 0.62rem;
+        letter-spacing: 0.04em;
+    }
+
+    nav i { font-size: 1rem; }
+
+    .sidebar-socials {
+        grid-area: socials;
+        justify-content: flex-end;
+        gap: 0.35rem;
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .social-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+
+    main {
+        width: 100%;
+        margin-left: 0;
+        padding-top: calc(var(--mobile-header-height) + var(--ticker-height));
+    }
+
+    .carousel {
+        top: var(--mobile-header-height);
+        left: 0;
+        width: 100%;
+    }
+
     .about-section { max-width: 860px; }
 
     .about-feature {
@@ -1333,52 +1338,58 @@ main {
 
 @media (max-width: 700px) {
     :root {
-        --sidebar-width: 68px;
         --ticker-height: 34px;
     }
 
-    aside {
-        padding: 0.85rem 0.4rem;
-        align-items: center;
-    }
-
-    .profile-info { display: none; }
-
-    .profile-avatar-wrap {
-        width: 44px;
-        height: 44px;
-    }
-
-    nav li {
-        justify-content: center;
-        padding: 0;
-    }
-
-    nav a { display: none; }
-    nav i { font-size: 1.45rem; }
-
-    .sidebar-socials {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding-top: 0.5rem;
-    }
-
-    .social-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 1.1rem;
-    }
-
     .about-section { padding: 3.5rem 1rem 4rem; }
+    .section-wrapper { padding: 3.5rem 1rem; }
+    .section-title { font-size: clamp(1.55rem, 7vw, 2rem); }
+    .section-heading-wrap { margin-bottom: 2rem; }
+    .group {
+        gap: 0.8rem;
+        padding: 0 0.65rem;
+    }
+
+    .card { font-size: 0.72rem; }
+
+    .explore-btn {
+        bottom: 1.25rem;
+        max-width: calc(100% - 2rem);
+        padding: 0.5rem 0.8rem;
+        font-size: 0.68rem;
+        white-space: nowrap;
+    }
+
     .form-split { grid-template-columns: 1fr; }
 
     .featured-project-body {
         grid-template-columns: 1fr;
     }
+
+    .contract-card { padding: 1.5rem 1rem; }
+    .ticket-header { flex-wrap: wrap; gap: 0.5rem; }
+    .featured-project-media { aspect-ratio: 16 / 9; }
+
+    .channel-row div strong {
+        overflow-wrap: anywhere;
+    }
+
+    .site-footer { padding: 1.5rem 1rem; }
 }
 
 @media (max-width: 500px) {
-    .fixture-stats { grid-template-columns: 1fr; }
+    aside { padding-right: 0.5rem; padding-left: 0.5rem; }
+
+    .profile-name { font-size: 0.62rem; }
+    .profile-badge { font-size: 0.5rem; }
+    nav ul { justify-content: flex-start; }
+    nav li { padding-right: 0.4rem; padding-left: 0.4rem; }
+    nav a { font-size: 0.58rem; }
+
+    .featured-project-body { padding: 0.75rem; }
+    .featured-project-meta > div { grid-template-columns: 3rem minmax(0, 1fr); gap: 0.5rem; }
+    .about-section { padding-right: 0.85rem; padding-left: 0.85rem; }
+    .section-wrapper { padding-right: 0.85rem; padding-left: 0.85rem; }
 }
 
 .motion-ready .reveal-on-scroll {
