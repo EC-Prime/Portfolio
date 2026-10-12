@@ -59,6 +59,8 @@ function drawGrid() {
 
 function sampleLogoIntoCells() {
     cells = [];
+    if (!img.naturalWidth || !img.naturalHeight) return;
+
     const imgRect = img.getBoundingClientRect();
 
     if (imgRect.width === 0 || imgRect.height === 0) return;
@@ -481,10 +483,23 @@ function enableRevealAnimations() {
 
 document.querySelectorAll('.featured-project-media video').forEach(initializeProjectVideo);
 
-if (img.complete) {
+function startPortfolio() {
     init();
     animate();
     enableRevealAnimations();
-} else {
-    img.addEventListener('load', () => { init(); animate(); enableRevealAnimations(); });
+}
+
+img.addEventListener('load', startPortfolio, { once: true });
+img.addEventListener('error', () => {
+    console.error('Unable to load the hero logo image.', img.src);
+    startPortfolio();
+}, { once: true });
+
+if (img.complete) {
+    if (img.naturalWidth > 0) {
+        startPortfolio();
+    } else {
+        console.error('Unable to load the hero logo image.', img.src);
+        startPortfolio();
+    }
 }
