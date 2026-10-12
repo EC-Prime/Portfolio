@@ -354,6 +354,22 @@ function initializeGoldenTrace(sourceId, canvasId) {
 initializeGoldenTrace('gold-trace-source', 'gold-trace-canvas');
 initializeGoldenTrace('skills-trace-source', 'skills-trace-canvas');
 
+document.querySelectorAll('.featured-project-media video').forEach((video) => {
+    const clipStart = 1;
+    const configuredClipEnd = Number(video.dataset.clipEnd);
+    video.playbackRate = 1.5;
+    const startClip = () => { video.currentTime = clipStart; };
+
+    video.addEventListener('loadedmetadata', startClip, { once: true });
+    video.addEventListener('timeupdate', () => {
+        const clipEnd = configuredClipEnd || video.duration;
+        const loopThreshold = configuredClipEnd ? clipEnd : clipEnd - 0.25;
+        if (video.currentTime >= loopThreshold) startClip();
+    });
+
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) startClip();
+});
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function enableRevealAnimations() {
